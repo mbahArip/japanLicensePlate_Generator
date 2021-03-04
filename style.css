@@ -413,6 +413,22 @@ input[type=number] {
   font-weight: bold;
 }
 
+#editor span#inputHeightContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#editor span#inputHeightContainer #inputHeight {
+  margin: 5px;
+}
+
 #generate {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -428,13 +444,18 @@ input[type=number] {
       -ms-flex-align: center;
           align-items: center;
   width: 100%;
+  height: auto;
   margin: auto;
-  -webkit-transition: 1s all;
-  transition: 1s all;
 }
 
-#generate .generatedPlate {
+#generate img {
   width: 75%;
+  margin: .5rem;
+}
+
+#generate .loading {
+  margin: 2rem;
+  display: none;
 }
 
 #footer {

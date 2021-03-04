@@ -36,6 +36,7 @@ const inputHiragana = document.getElementById('inputHiragana');
 const inputNumber = document.getElementById('inputNumber');
 const inputScale = document.getElementById('inputScale');
 
+const inputHeight = document.getElementById('inputHeight');
 const inputGenerate = document.getElementById('inputGenerate');
 const inputDownload = document.getElementById('inputDownload');
 const inputReset = document.getElementById('inputReset');
@@ -62,4 +63,5 @@ var arrayHiraganaGreen = [
     //General
 const imgEmpty = 'url(img/undefined.png)';
 const imgDefault = 'url(img/num/0.png)';
-const imgDash = 'url(img/num/-.png)'
+const imgDash = 'url(img/num/-.png)';
+const APIkey = 'NTlhZjEzYTg2MzljNDcyMDk3MDQzZTEzMDM1ZGVkNWI=';

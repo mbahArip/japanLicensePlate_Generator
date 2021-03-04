@@ -308,6 +308,16 @@ input[type=number] {
         color:#f33b3b;
         font-weight: bold;
     }
+
+    span#inputHeightContainer {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+
+        #inputHeight{
+            margin: 5px;
+        }
+    }
 }
 
 #generate {
@@ -316,12 +326,16 @@ input[type=number] {
     justify-content: center;
     align-items: center;
     width: 100%;
+    height: auto;
     margin: auto;
-    
-    transition: 1s all;
 
-    .generatedPlate {
+    img {
         width: 75%;
+        margin: .5rem;
+    }
+    .loading {
+        margin: 2rem;
+        display: none;
     }
 }
 

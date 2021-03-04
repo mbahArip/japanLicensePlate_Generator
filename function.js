@@ -354,28 +354,66 @@ function checkScale() {
 inputScale.addEventListener('keyup', checkScale);
 
     //Generate Image
-function capture() {
-    generateContainer.innerHTML = '';
-    var renderScale = inputScale.value;
-    if (inputCarType.value == 'commercial' || inputCarType.value == 'k-commercial') {
-        previewContainer.style.filter = 'grayscale(1) contrast(2) invert(1)';
-    } else {
-        previewContainer.style.filter = 'grayscale(1) contrast(2)';
-    }
-
+function showLoading() {
+    document.querySelector('.loading').style.display = 'block';
+}
+function hideLoading() {
+    document.querySelector('.loading').style.display = 'none';
+}
+function generateDiffuse(scale) {
     var option = {
         'target': '#preview',
         'format': 'png',
         'hd': 1,
-        'displayid': 'diffusePlate',
-        'width': previewContainer.offsetWidth * renderScale,
-        'height': previewContainer.offsetHeight * renderScale,
+        'filename': 'diffuseMap',
+        'onstart': showLoading,
+        'onfinish': hideLoading,
+        'width': previewContainer.offsetWidth * scale,
+        'height': previewContainer.offsetHeight * scale,
         'bwidth': document.body.clientWidth,
         'bheight': document.body.clientHeight
-    }
-    GrabzIt("NTlhZjEzYTg2MzljNDcyMDk3MDQzZTEzMDM1ZGVkNWI=")
+    };
+
+    GrabzIt(APIkey)
         .ConvertPage(option)
         .AddTo('generate');
 }
-inputGenerate.addEventListener('click', capture);
+function generateHeight(scale) {
+    if (inputCarType.value == 'commercial' || inputCarType.value == 'k-commercial') {
+        previewContainer.style.filter = 'grayscale(1) contrast(2) invert(1)';
+    } else {
+        previewContainer.style.filter = 'grayscale(1) contrast(2)'
+    };
+    previewTop.style.filter = 'blur(1px)';
+    previewBottom.style.filter = 'blur(1px)';
+
+    var optionHeight = {
+        'target': '#preview',
+        'format': 'png',
+        'hd': 1,
+        'filename': 'heightMap',
+        'width': previewContainer.offsetWidth * scale,
+        'height': previewContainer.offsetHeight * scale,
+        'bwidth': document.body.clientWidth,
+        'bheight': document.body.clientHeight
+    };
+
+    GrabzIt(APIkey)
+        .ConvertPage(optionHeight)
+        .AddTo('generate');
+    
+    previewContainer.style.filter = '';
+    previewTop.style.filter = '';
+    previewBottom.style.filter = '';
+}
+function generatePlate() {
+    generateContainer.innerHTML = '';
+    var renderScale = inputScale.value;
+
+    generateHeight(renderScale);
+    if (inputHeight.checked) {
+        generateHeight(renderScale);
+    }
+}
+inputGenerate.addEventListener('click', generatePlate);
 
