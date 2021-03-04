@@ -355,17 +355,17 @@ inputScale.addEventListener('keyup', checkScale);
 
     //Generate Image
 function showLoading() {
-    document.querySelector('.loading').style.display = 'block';
+    loading.style.display = 'block';
 }
 function hideLoading() {
-    document.querySelector('.loading').style.display = 'none';
+    loading.style.display = 'none';
 }
 function generateDiffuse(scale) {
     var option = {
         'target': '#preview',
         'format': 'png',
         'hd': 1,
-        'filename': 'diffuseMap',
+        'displayclass': 'diffuseMap',
         'onstart': showLoading,
         'onfinish': hideLoading,
         'width': previewContainer.offsetWidth * scale,
@@ -391,7 +391,7 @@ function generateHeight(scale) {
         'target': '#preview',
         'format': 'png',
         'hd': 1,
-        'filename': 'heightMap',
+        'displayclass': 'heightMap',
         'width': previewContainer.offsetWidth * scale,
         'height': previewContainer.offsetHeight * scale,
         'bwidth': document.body.clientWidth,
@@ -410,10 +410,11 @@ function generatePlate() {
     generateContainer.innerHTML = '';
     var renderScale = inputScale.value;
 
-    generateHeight(renderScale);
+    generateDiffuse(renderScale);
     if (inputHeight.checked) {
         generateHeight(renderScale);
     }
+    inputDownload.removeAttribute('disabled');
 }
 inputGenerate.addEventListener('click', generatePlate);
 

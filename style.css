@@ -429,6 +429,11 @@ input[type=number] {
   margin: 5px;
 }
 
+#loading {
+  margin: 2rem;
+  display: none;
+}
+
 #generate {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -451,11 +456,6 @@ input[type=number] {
 #generate img {
   width: 75%;
   margin: .5rem;
-}
-
-#generate .loading {
-  margin: 2rem;
-  display: none;
 }
 
 #footer {

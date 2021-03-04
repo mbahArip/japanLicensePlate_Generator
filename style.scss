@@ -320,6 +320,10 @@ input[type=number] {
     }
 }
 
+#loading {
+    margin: 2rem;
+    display: none;
+}
 #generate {
     display: flex;
     flex-direction: column;
@@ -332,10 +336,6 @@ input[type=number] {
     img {
         width: 75%;
         margin: .5rem;
-    }
-    .loading {
-        margin: 2rem;
-        display: none;
     }
 }
 
