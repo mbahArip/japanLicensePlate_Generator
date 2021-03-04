@@ -430,6 +430,10 @@ input[type=number] {
   margin: auto;
 }
 
+#generate .generatedPlate {
+  width: 100%;
+}
+
 #footer {
   width: 100vw;
   height: 7rem;
