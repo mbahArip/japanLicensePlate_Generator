@@ -1,0 +1,159 @@
+{
+    "Hokkaido": [
+        {
+            "name": "Hokkaido"
+        }
+    ],
+    "Tohoku": [
+        {
+            "name": "Aomori"
+        },
+        {
+            "name": "Iwate"
+        },
+        {
+            "name": "Miyagi"
+        },
+        {
+            "name": "Akita"
+        },
+        {
+            "name": "Yamagata"
+        },
+        {
+            "name": "Fukushima"
+        }
+    ],
+    "Kanto": [
+        {
+            "name": "Ibaraki"
+        },
+        {
+            "name": "Tochigi"
+        },
+        {
+            "name": "Gunma"
+        },
+        {
+            "name": "Saitama"
+        },
+        {
+            "name": "Chiba"
+        },
+        {
+            "name": "Tokyo"
+        },
+        {
+            "name": "Kanagawa"
+        }
+    ],
+    "Chubu": [
+        {
+            "name": "Niigata"
+        },
+        {
+            "name": "Toyama"
+        },
+        {
+            "name": "Ishikawa"
+        },
+        {
+            "name": "Fukui"
+        },
+        {
+            "name": "Yamanashi"
+        },
+        {
+            "name": "Nagano"
+        },
+        {
+            "name": "Gifu"
+        },
+        {
+            "name": "Shizuoka"
+        },
+        {
+            "name": "Aichi"
+        }
+    ],
+    "Kansai": [
+        {
+            "name": "Mie"
+        },
+        {
+            "name": "Shiga"
+        },
+        {
+            "name": "Kyoto"
+        },
+        {
+            "name": "Osaka"
+        },
+        {
+            "name": "Hyogo"
+        },
+        {
+            "name": "Nara"
+        },
+        {
+            "name": "Wakayama"
+        }
+    ],
+    "Chugoku": [
+        {
+            "name": "Tottori"
+        },
+        {
+            "name": "Shimane"
+        },
+        {
+            "name": "Okayama"
+        },
+        {
+            "name": "Hiroshima"
+        },
+        {
+            "name": "Yamaguchi"
+        }
+    ],
+    "Shikoku": [
+        {
+            "name": "Tokushima"
+        },
+        {
+            "name": "Kagawa"
+        },
+        {
+            "name": "Ehime"
+        },
+        {
+            "name": "Kochi"
+        }
+    ],
+    "Kyushu": [
+        {
+            "name": "Fukuoka"
+        },
+        {
+            "name": "Saga"
+        },
+        {
+            "name": "Nagasaki"
+        },
+        {
+            "name": "Kumamoto"
+        },
+        {
+            "name": "Oita"
+        },
+        {
+            "name": "Miyazaki"
+        },
+        {
+            "name": "Kagoshima"
+        },
+        {
+            "name": "Okinawa"
+        }
+    ]
+}

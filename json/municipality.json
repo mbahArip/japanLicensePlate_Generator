@@ -1,0 +1,850 @@
+{
+    "Aichi": [
+        {
+            "Komaki": [
+                {
+                    "romaji": "Owari-Komaki",
+                    "kanji": "尾張小牧"
+                },
+                {
+                    "romaji": "Ichinomiya",
+                    "kanji": "一宮"
+                },
+                {
+                    "romaji": "Kasugai",
+                    "kanji": "春日井"
+                }
+            ],
+            "Nagoya": [
+                {
+                    "romaji": "Nagoya",
+                    "kanji": "名古屋"
+                }
+            ],
+            "Toyohashi": [
+                {
+                    "romaji": "Toyohashi",
+                    "kanji": "豊橋"
+                }
+            ],
+            "Toyota": [
+                {
+                    "romaji": "Mikawa",
+                    "kanji": "三河"
+                },
+                {
+                    "romaji": "Okazaki",
+                    "kanji": "岡崎"
+                },
+                {
+                    "romaji": "Toyota",
+                    "kanji": "豊田"
+                }
+            ]
+        }
+    ],
+    "Akita": [
+        {
+            "Akita": [
+                {
+                    "romaji": "Akita",
+                    "kanji": "秋田"
+                }
+            ]
+        }
+    ],
+    "Aomori": [
+        {
+            "Aomori": [
+                {
+                    "romaji": "Aomori",
+                    "kanji": "青森"
+                }
+            ],
+            "Hachinohe": [
+                {
+                    "romaji": "Hachinohe",
+                    "kanji": "八戸"
+                }
+            ]
+        }
+    ],
+    "Chiba": [
+        {
+            "Chiba": [
+                {
+                    "romaji": "Chiba",
+                    "kanji": "千葉"
+                },
+                {
+                    "romaji": "Narita",
+                    "kanji": "成田"
+                }
+            ],
+            "Funabashi": [
+                {
+                    "romaji": "Narashino",
+                    "kanji": "習志野"
+                }
+            ],
+            "Noda": [
+                {
+                    "romaji": "Noda",
+                    "kanji": "野田"
+                },
+                {
+                    "romaji": "Kashiwa",
+                    "kanji": "柏"
+                }
+            ],
+            "Sodegaura": [
+                {
+                    "romaji": "Sodegaura",
+                    "kanji": "袖ヶ浦"
+                }
+            ]
+        }
+    ],
+    "Ehime": [
+        {
+            "Matsuyama": [
+                {
+                    "romaji": "Ehime",
+                    "kanji": "愛媛"
+                }
+            ]
+        }
+    ],
+    "Fukui": [
+        {
+            "Fukui": [
+                {
+                    "romaji": "Fukui",
+                    "kanji": "福井"
+                }
+            ]
+        }
+    ],
+    "Fukuoka": [
+        {
+            "Fukuoka": [
+                {
+                    "romaji": "Fukuoka",
+                    "kanji": "福岡"
+                }
+            ],
+            "Iizuka": [
+                {
+                    "romaji": "Chikuho",
+                    "kanji": "筑豊"
+                }
+            ],
+            "Kitakyushu": [
+                {
+                    "romaji": "Kitakyushu",
+                    "kanji": "北九州"
+                }
+            ],
+            "Kurume": [
+                {
+                    "romaji": "Kurume",
+                    "kanji": "久留米"
+                }
+            ]
+        }
+    ],
+    "Fukushima": [
+        {
+            "Fukushima": [
+                {
+                    "romaji": "Fukushima",
+                    "kanji": "福島"
+                },
+                {
+                    "romaji": "Aizu",
+                    "kanji": "会津"
+                },
+                {
+                    "romaji": "Koriyama",
+                    "kanji": "郡山"
+                }
+            ],
+            "Iwaki": [
+                {
+                    "romaji": "Iwaki",
+                    "kanji": "いわき"
+                }
+            ]
+        }
+    ],
+    "Gifu": [
+        {
+            "Gifu": [
+                {
+                    "romaji": "Gifu",
+                    "kanji": "岐阜"
+                }
+            ],
+            "Takayama": [
+                {
+                    "romaji": "Hida",
+                    "kanji": "飛騨"
+                }
+            ]
+        }
+    ],
+    "Gunma": [
+        {
+            "Maebashi": [
+                {
+                    "romaji": "Gunma",
+                    "kanji": "群馬"
+                },
+                {
+                    "romaji": "Maebashi",
+                    "kanji": "前橋"
+                },
+                {
+                    "romaji": "Takasaki",
+                    "kanji": "高崎"
+                }
+            ]
+        }
+    ],
+    "Hiroshima": [
+        {
+            "Fukuyama": [
+                {
+                    "romaji": "Fukuyama",
+                    "kanji": "福山"
+                }
+            ],
+            "Hiroshima": [
+                {
+                    "romaji": "Hiroshima",
+                    "kanji": "広島"
+                }
+            ]
+        }
+    ],
+    "Hokkaido": [
+        {
+            "Asahikawa": [
+                {
+                    "romaji": "Asahikawa",
+                    "kanji": "旭川"
+                }
+            ],
+            "Hakodate": [
+                {
+                    "romaji": "Hakodate",
+                    "kanji": "函館"
+                }
+            ],
+            "Kitami": [
+                {
+                    "romaji": "Kitami",
+                    "kanji": "北見"
+                }
+            ],
+            "Kushiro": [
+                {
+                    "romaji": "Kushiro",
+                    "kanji": "釧路"
+                }
+            ],
+            "Muroran": [
+                {
+                    "romaji": "Muroran",
+                    "kanji": "室蘭"
+                }
+            ],
+            "Obihiro": [
+                {
+                    "romaji": "Obihiro",
+                    "kanji": "帯広"
+                }
+            ],
+            "Sapporo": [
+                {
+                    "romaji": "Sapporo",
+                    "kanji": "札幌"
+                }
+            ]
+        }
+    ],
+    "Hyogo": [
+        {
+            "Himeji": [
+                {
+                    "romaji": "Himeji",
+                    "kanji": "姫路"
+                }
+            ],
+            "Kobe": [
+                {
+                    "romaji": "Kobe",
+                    "kanji": "神戸"
+                }
+            ]
+        }
+    ],
+    "Ibaraki": [
+        {
+            "Mito": [
+                {
+                    "romaji": "Mito",
+                    "kanji": "水戸"
+                }
+            ],
+            "Tsuchiura": [
+                {
+                    "romaji": "Tsuchiura",
+                    "kanji": "土浦"
+                },
+                {
+                    "romaji": "Tsukuba",
+                    "kanji": "つくば"
+                }
+            ]
+        }
+    ],
+    "Ishikawa": [
+        {
+            "Kanazawa": [
+                {
+                    "romaji": "Ishikawa",
+                    "kanji": "石川"
+                },
+                {
+                    "romaji": "Kanazawa",
+                    "kanji": "金沢"
+                }
+            ]
+        }
+    ],
+    "Iwate": [
+        {
+            "Yahaba": [
+                {
+                    "romaji": "Iwate",
+                    "kanji": "岩手"
+                },
+                {
+                    "romaji": "Hiraizumi",
+                    "kanji": "平泉"
+                },
+                {
+                    "romaji": "Morioka",
+                    "kanji": "盛岡"
+                }
+            ]
+        }
+    ],
+    "Kagawa": [
+        {
+            "Takamatsu": [
+                {
+                    "romaji": "Kagawa",
+                    "kanji": "香川"
+                }
+            ]
+        }
+    ],
+    "Kagoshima": [
+        {
+            "Kagoshima": [
+                {
+                    "romaji": "Kagoshima",
+                    "kanji": "鹿児島"
+                },
+                {
+                    "romaji": "Amami",
+                    "kanji": "奄美"
+                }
+            ]
+        }
+    ],
+    "Kanagawa": [
+        {
+            "Aikawa": [
+                {
+                    "romaji": "Sagami",
+                    "kanji": "相模"
+                }
+            ],
+            "Hiratsuka": [
+                {
+                    "romaji": "Shonan",
+                    "kanji": "湘南"
+                }
+            ],
+            "Kawasaki": [
+                {
+                    "romaji": "Kawasaki",
+                    "kanji": "川崎"
+                }
+            ],
+            "Yokohama": [
+                {
+                    "romaji": "Yokohama",
+                    "kanji": "横浜"
+                }
+            ]
+        }
+    ],
+    "Kochi": [
+        {
+            "Kochi": [
+                {
+                    "romaji": "Kochi",
+                    "kanji": "高知"
+                }
+            ]
+        }
+    ],
+    "Kumamoto": [
+        {
+            "Kumamoto": [
+                {
+                    "romaji": "Kumamoto",
+                    "kanji": "熊本"
+                }
+            ]
+        }
+    ],
+    "Kyoto": [
+        {
+            "Kyoto": [
+                {
+                    "romaji": "Kyoto",
+                    "kanji": "京都"
+                }
+            ]
+        }
+    ],
+    "Mie": [
+        {
+            "Tsu": [
+                {
+                    "romaji": "Mie",
+                    "kanji": "三重"
+                },
+                {
+                    "romaji": "Suzuka",
+                    "kanji": "鈴鹿"
+                }
+            ]
+        }
+    ],
+    "Miyagi": [
+        {
+            "Sendai": [
+                {
+                    "romaji": "Miyagi",
+                    "kanji": "宮城"
+                },
+                {
+                    "romaji": "Sendai",
+                    "kanji": "仙台"
+                }
+            ]
+        }
+    ],
+    "Miyazaki": [
+        {
+            "Miyazaki": [
+                {
+                    "romaji": "Miyazaki",
+                    "kanji": "宮崎"
+                }
+            ]
+        }
+    ],
+    "Nagano": [
+        {
+            "Matsumoto": [
+                {
+                    "romaji": "Matsumoto",
+                    "kanji": "松本"
+                },
+                {
+                    "romaji": "Suwa",
+                    "kanji": "諏訪"
+                }
+            ],
+            "Nagano": [
+                {
+                    "romaji": "Nagano",
+                    "kanji": "長野"
+                }
+            ]
+        }
+    ],
+    "Nagasaki": [
+        {
+            "Nagasaki": [
+                {
+                    "romaji": "Nagasaki",
+                    "kanji": "長崎"
+                }
+            ],
+            "Tsushima": [
+                {
+                    "romaji": "Nagasaki",
+                    "kanji": "長崎"
+                }
+            ],
+            "Sasebo": [
+                {
+                    "romaji": "Sasebo",
+                    "kanji": "佐世保"
+                }
+            ]
+        }
+    ],
+    "Nara": [
+        {
+            "Yamatokoriyama": [
+                {
+                    "romaji": "Nara",
+                    "kanji": "奈良"
+                }
+            ]
+        }
+    ],
+    "Niigata": [
+        {
+            "Nagaoka": [
+                {
+                    "romaji": "Nagaoka",
+                    "kanji": "長岡"
+                }
+            ],
+            "Niigata": [
+                {
+                    "romaji": "Niigata",
+                    "kanji": "新潟"
+                }
+            ]
+        }
+    ],
+    "Oita": [
+        {
+            "Oita": [
+                {
+                    "romaji": "Oita",
+                    "kanji": "大分"
+                }
+            ]
+        }
+    ],
+    "Okayama": [
+        {
+            "Okayama": [
+                {
+                    "romaji": "Okayama",
+                    "kanji": "岡山"
+                },
+                {
+                    "romaji": "Kurashiki",
+                    "kanji": "倉敷"
+                }
+            ]
+        }
+    ],
+    "Okinawa": [
+        {
+            "Ishigaki": [
+                {
+                    "romaji": "Okinawa",
+                    "kanji": "沖縄"
+                }
+            ],
+            "Miyakojima": [
+                {
+                    "romaji": "Okinawa",
+                    "kanji": "沖縄"
+                }
+            ],
+            "Urasoe": [
+                {
+                    "romaji": "Okinawa",
+                    "kanji": "沖縄"
+                }
+            ]
+        }
+    ],
+    "Osaka": [
+        {
+            "Izumi": [
+                {
+                    "romaji": "Izumi",
+                    "kanji": "和泉"
+                },
+                {
+                    "romaji": "Sakai",
+                    "kanji": "堺"
+                }
+            ],
+            "Neyagawa": [
+                {
+                    "romaji": "Osaka",
+                    "kanji": "大阪"
+                }
+            ],
+            "Osaka": [
+                {
+                    "romaji": "Naniwa",
+                    "kanji": "なにわ"
+                }
+            ]
+        }
+    ],
+    "Saga": [
+        {
+            "Saga": [
+                {
+                    "romaji": "Saga",
+                    "kanji": "佐賀"
+                }
+            ]
+        }
+    ],
+    "Saitama": [
+        {
+            "Kasukabe": [
+                {
+                    "romaji": "Kasukabe",
+                    "kanji": "春日部"
+                },
+                {
+                    "romaji": "Koshigaya",
+                    "kanji": "越谷"
+                }
+            ],
+            "Kumagaya": [
+                {
+                    "romaji": "Kumagaya",
+                    "kanji": "熊谷"
+                }
+            ],
+            "Saitama": [
+                {
+                    "romaji": "Omiya",
+                    "kanji": "大宮"
+                },
+                {
+                    "romaji": "Kawaguchi",
+                    "kanji": "川口"
+                }
+            ],
+            "Tokorozawa": [
+                {
+                    "romaji": "Tokorozawa",
+                    "kanji": "所沢"
+                },
+                {
+                    "romaji": "Kawagoe",
+                    "kanji": "川越"
+                }
+            ]
+        }
+    ],
+    "Shiga": [
+        {
+            "Moriyama": [
+                {
+                    "romaji": "Shiga",
+                    "kanji": "滋賀"
+                }
+            ]
+        }
+    ],
+    "Shimane": [
+        {
+            "Shimane": [
+                {
+                    "romaji": "Shimane",
+                    "kanji": "島根"
+                }
+            ]
+        }
+    ],
+    "Shizuoka": [
+        {
+            "Hamamatsu": [
+                {
+                    "romaji": "Hamamatsu",
+                    "kanji": "浜松"
+                }
+            ],
+            "Numazu": [
+                {
+                    "romaji": "Numazu",
+                    "kanji": "沼津"
+                },
+                {
+                    "romaji": "Fujisan",
+                    "kanji": "富士山"
+                },
+                {
+                    "romaji": "Izu",
+                    "kanji": "伊豆"
+                }
+            ],
+            "Shizuoka": [
+                {
+                    "romaji": "Shizuoka",
+                    "kanji": "静岡"
+                }
+            ]
+        }
+    ],
+    "Tochigi": [
+        {
+            "Sano": [
+                {
+                    "romaji": "Tochigi",
+                    "kanji": "とちぎ"
+                }
+            ],
+            "Utsunomiya": [
+                {
+                    "romaji": "Utsunomiya",
+                    "kanji": "宇都宮"
+                },
+                {
+                    "romaji": "Nasu",
+                    "kanji": "那須"
+                }
+            ]
+        }
+    ],
+    "Tokushima": [
+        {
+            "Tokushima": [
+                {
+                    "romaji": "Tokushima",
+                    "kanji": "徳島"
+                }
+            ]
+        }
+    ],
+    "Tokyo": [
+        {
+            "Adachi": [
+                {
+                    "romaji": "Adachi",
+                    "kanji": "足立"
+                }
+            ],
+            "Hachioji": [
+                {
+                    "romaji": "Hachioji",
+                    "kanji": "八王子"
+                }
+            ],
+            "Kunitachi": [
+                {
+                    "romaji": "Tama",
+                    "kanji": "多摩"
+                }
+            ],
+            "Nerima": [
+                {
+                    "romaji": "Nerima",
+                    "kanji": "練馬"
+                },
+                {
+                    "romaji": "Suginami",
+                    "kanji": "杉並"
+                }
+            ],
+            "Shinagawa": [
+                {
+                    "romaji": "Shinagawa",
+                    "kanji": "品川"
+                },
+                {
+                    "romaji": "Setagaya",
+                    "kanji": "世田谷"
+                }
+            ]
+        }
+    ],
+    "Tottori": [
+        {
+            "Tottori": [
+                {
+                    "romaji": "Tottori",
+                    "kanji": "鳥取"
+                }
+            ]
+        }
+    ],
+    "Toyama": [
+        {
+            "Toyama": [
+                {
+                    "romaji": "Toyama",
+                    "kanji": "富山"
+                }
+            ]
+        }
+    ],
+    "Wakayama": [
+        {
+            "Wakayama": [
+                {
+                    "romaji": "Wakayama",
+                    "kanji": "和歌山"
+                }
+            ]
+        }
+    ],
+    "Yamagata": [
+        {
+            "Mikawa": [
+                {
+                    "romaji": "Shonai",
+                    "kanji": "庄内"
+                }
+            ],
+            "Yamagata": [
+                {
+                    "romaji": "Yamagata",
+                    "kanji": "山形"
+                }
+            ]
+        }
+    ],
+    "Yamaguchi": [
+        {
+            "Yamaguchi": [
+                {
+                    "romaji": "Yamaguchi",
+                    "kanji": "山口"
+                },
+                {
+                    "romaji": "Shimonoseki",
+                    "kanji": "下関"
+                }
+            ]
+        }
+    ],
+    "Yamanashi": [
+        {
+            "Fuefuki": [
+                {
+                    "romaji": "Yamanashi",
+                    "kanji": "山梨"
+                },
+                {
+                    "romaji": "Fujisan",
+                    "kanji": "富士山"
+                }
+            ]
+        }
+    ]
+}

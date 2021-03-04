@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet' crossorigin="anonymous">
+    <title>Plate Generator</title>
+    <script src="lib\dom-to-image.min.js"></script>
+</head>
+
+<body>
+    <div id="notice">
+        <div class="notice">
+            <p>For all information and how to generate license plate correctly, please read the explanation <a href="https://en.wikipedia.org/wiki/Vehicle_registration_plates_of_Japan" target="_blank">HERE</a></p>
+        </div>
+    </div>
+
+    <div id="previewContainer">
+        <div id="previewWrapper">
+            <h1>Preview</h1>
+            <div id="preview" class="clWhite switchBackground">
+                <div class="top">
+                    <div id="prefecture" class="clGreen switchText"></div>
+                    <div id="engine">
+                        <div class="engine1 clGreen switchText"></div>
+                        <div class="engine2 clGreen switchText"></div>
+                        <div class="engine3 clGreen switchText"></div>
+                    </div>
+                </div>
+                <div class="bottom">
+                    <div id="hiragana" class="clGreen switchText"></div>
+                    <div id="number">
+                        <div class="num1 clGreen switchText"></div>
+                        <div class="num2 clGreen switchText"></div>
+                        <div class="num3 clGreen switchText"></div>
+                        <div class="num4 clGreen switchText"></div>
+                        <div class="num5 clGreen switchText"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="inputWrapper">
+            <h1>Input</h1>
+            <div id="editor">
+                <label>Plate Type</label>
+                <select name="inputCarType" id="inputCarType">
+                    <option value="" disabled selected hidden>Plate Type</option>
+                    <option value="private">Private Vehicle</option>
+                    <option value="commercial">Commercial Vehicle</option>
+                    <option value="k-private">Kei Vehicle</option>
+                    <option value="k-commercial">Commercial Kei Vehicle</option>
+                    <option value="temp" disabled>Temporary Plate (Will be updated later)</option>
+                </select>
+                <br>
+
+                <label>Region</label>
+                <select name="inputRegion" id="inputRegion">
+                    <option value="" disabled selected hidden>Region</option>
+                    <option value="Hokkaido">Hokkaido</option>
+                    <option value="Tohoku">Tohoku</option>
+                    <option value="Kanto">Kanto</option>
+                    <option value="Chubu">Chubu</option>
+                    <option value="Kansai">Kansai</option>
+                    <option value="Chugoku">Chugoku</option>
+                    <option value="Shikoku">Shikoku</option>
+                    <option value="Kyushu">Kyushu</option>
+                </select>
+
+                <label>Prefecture</label>
+                <select name="inputPrefecture" id="inputPrefecture">
+                    <option value="" disabled selected hidden>Prefecture</option>
+                    <option value="" disabled>Please select Region first</option>
+                </select>
+
+                <label>Municipality</label>
+                <select name="inputMunicipality" id="inputMunicipality">
+                    <option value="" disabled selected hidden>Municipality</option>
+                    <option value="" disabled>Please select Prefecture first</option>
+                </select>
+
+                <label>Wards</label>
+                <select name="inputWards" id="inputWards">
+                    <option value="" disabled selected hidden>Wards</option>
+                    <option value="" disabled>Please select Municipality first</option>
+                </select>
+                <br>
+
+                <label>Vehicle Engine Class</label>
+                <span class="sub">Please read wiki information first!</span>
+                <input id="inputEngine" type="text" placeholder="3 digits vehicle engine class" maxlength="3" oninput="updateNumber()">
+                <br>
+
+                <label>Hiragana Character</label>
+                <span class="sub">Please read wiki information first!</span>
+                <select name="inputHiragana" id="inputHiragana">
+                    <option value="" disabled selected hidden>Hiragana</option>
+                    <option value="" disabled>Please select plate type!</option>
+                </select>
+
+                <label>Number Plate</label>
+                <input id="inputNumber" type="text" placeholder="Plate Number" maxlength="5" oninput="updateSerial()" onkeypress="return filterNumber(event);">
+                <br>
+
+                <label>Output Scale</label>
+                <span class="sub">Scale the image (default 1; max 5)</span>
+                <input id="inputScale" type="number" maxlength="1" value="1" min="1" max="5">
+                <p class="warning">Attention! <br>
+                    For game, 2x scale are more than enough!
+                </p>
+                <br>
+
+                <button id="inputGenerate" class="btnGenerate">Generate</button>
+                <button id="inputDownload" class="btnDownload" disabled>Download Image</button>
+                <br>
+
+                <button id="inputReset" class="btnReset">Reset</button>
+                <br>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="generateWrapper">
+        <h1>Generated Image</h1>
+        <div id="generate">
+        </div>
+    </div>
+
+    <div id="notice">
+        <div class="notice noticeAlert">
+            <p>
+                This site are made for 3D Artist, or Game Modders. <br>
+                I don't take any responsibility for anything that generated from this site. <br>
+                The user itself will take all responsibility for all texture user generate!
+            </p>
+        </div>
+    </div>
+
+    <footer id="footer">
+        If you found any Bugs or Problem, or if you have any Request feel free to message me at:
+        <div class="contact">
+            <i class='bx bxl-twitter'></i>
+            <a href=""> Twitter</a> -
+            <i class='bx bxl-github'></i>
+            <a href=""> Github</a> -
+            <i class='bx bxl-facebook-circle'></i>
+            <a href=""> Facebook</a>
+        </div>
+    </footer>
+</body>
+
+<!-- <script src="app.js"></script> -->
+<script src="variable.js"></script>
+<script src="function.js"></script>
+
+</html>
