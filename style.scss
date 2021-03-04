@@ -301,6 +301,10 @@ input[type=number] {
         font-size: 18px;
         cursor: pointer;
         outline: none;
+
+        &:disabled{
+            cursor: default;
+        }
     }
 
     .warning {
@@ -334,6 +338,11 @@ input[type=number] {
     margin: auto;
 
     img {
+        width: 75%;
+        margin: .5rem;
+    }
+    a {
+        cursor: default;
         width: 75%;
         margin: .5rem;
     }

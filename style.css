@@ -407,6 +407,10 @@ input[type=number] {
   outline: none;
 }
 
+#editor button:disabled {
+  cursor: default;
+}
+
 #editor .warning {
   margin: 5px auto;
   color: #f33b3b;
@@ -454,6 +458,12 @@ input[type=number] {
 }
 
 #generate img {
+  width: 75%;
+  margin: .5rem;
+}
+
+#generate a {
+  cursor: default;
   width: 75%;
   margin: .5rem;
 }

@@ -379,7 +379,7 @@ function generateDiffuse(scale) {
 
     GrabzIt(APIkey)
         .ConvertPage(option)
-        .AddTo('generate');
+        .AddTo('generateDiffuse');
 }
 function generateHeight(scale) {
     if (inputCarType.value == 'commercial' || inputCarType.value == 'k-commercial') {
@@ -404,7 +404,7 @@ function generateHeight(scale) {
 
     GrabzIt(APIkey)
         .ConvertPage(optionHeight)
-        .AddTo('generate');
+        .AddTo('generateHeight');
     
     previewContainer.style.filter = '';
     previewTop.style.filter = '';
@@ -421,3 +421,48 @@ function generatePlate() {
 }
 inputGenerate.addEventListener('click', generatePlate);
 
+    //Download Image
+
+
+    //Reset
+function resetSelect(type, text, prev) {
+    type.innerHTML = '';
+    type.appendChild(
+        new Option(text, '', true, true)
+    )
+    type.appendChild(
+        new Option(prev, '', false, false)
+    )
+    type.children[0].setAttribute('disabled', '');
+    type.children[0].setAttribute('hidden', '');
+    type.children[1].setAttribute('disabled', '');
+    
+}
+function reset() {
+    //Plate Type
+    inputCarType.selectedIndex = 0;
+    changePlate('clWhite', 'clGreen');
+
+    //Region
+    inputRegion.selectedIndex = 0;
+    //Prefecture
+    resetSelect(inputPrefecture, 'Prefecture', 'Please select Region first');
+    //Municipality
+    resetSelect(inputMunicipality, 'Municipality', 'Please select Prefecture first');
+    //Wards
+    resetSelect(inputWards, 'Wards', 'Please select Municipality first');
+    previewPrefecture.style.webkitMaskImage = imgEmpty;
+
+    //Vehicle Engine
+    inputEngine.value = '';
+    updateNumber();
+
+    //Hiragana
+    resetSelect(inputHiragana, 'Hiragana', 'Please select Plate type first');
+    previewHiragana.style.webkitMaskImage = imgEmpty;
+
+    //NumberPlate
+    inputNumber.value = '';
+    updateSerial();
+}
+inputReset.addEventListener('click', reset);

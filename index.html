@@ -93,18 +93,18 @@
 
                 <label>Vehicle Engine Class</label>
                 <span class="sub">Please read wiki information first!</span>
-                <input id="inputEngine" type="text" placeholder="3 digits vehicle engine class" maxlength="3" oninput="updateNumber()">
+                <input id="inputEngine" type="text" placeholder="3 digits vehicle engine class" maxlength="3" oninput="updateNumber()" autocomplete="off">
                 <br>
 
                 <label>Hiragana Character</label>
                 <span class="sub">Please read wiki information first!</span>
                 <select name="inputHiragana" id="inputHiragana">
                     <option value="" disabled selected hidden>Hiragana</option>
-                    <option value="" disabled>Please select plate type!</option>
+                    <option value="" disabled>Please select Plate type first</option>
                 </select>
 
                 <label>Number Plate</label>
-                <input id="inputNumber" type="text" placeholder="Plate Number" maxlength="5" oninput="updateSerial()" onkeypress="return filterNumber(event);">
+                <input id="inputNumber" type="text" placeholder="Plate Number" maxlength="5" oninput="updateSerial()" onkeypress="return filterNumber(event);" autocomplete="off">
                 <br>
 
                 <label>Output Scale</label>
@@ -135,6 +135,8 @@
             <img src="img\loading.svg">
         </div>
         <div id="generate">
+            <a href="" id="generateDiffuse" download="diffuseMap"></a>
+            <a href="" id="generateHeight" download="heightMap"></a>
         </div>
     </div>
 
