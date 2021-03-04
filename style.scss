@@ -109,10 +109,11 @@ input[type=number] {
     }
 }
 #generateWrapper {
-    width: 50vw;
+    width: 40vw;
     margin: auto;
     display: block;
     text-align: center;
+    opacity: 1;
 }
 
 #preview {
@@ -314,11 +315,13 @@ input[type=number] {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 45vw;
+    width: 100%;
     margin: auto;
+    
+    transition: 1s all;
 
     .generatedPlate {
-        width: 100%;
+        width: 75%;
     }
 }
 

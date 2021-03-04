@@ -56,7 +56,9 @@ setInputFilter(inputEngine, function(value) {
 
     //Plate Type
 function getCarType() {
+    previewContainer.style.filter = '';
     let carType = inputCarType.value;
+    
     switch (carType) {
         case 'private':
             changePlate('clWhite', 'clGreen');
@@ -353,20 +355,27 @@ inputScale.addEventListener('keyup', checkScale);
 
     //Generate Image
 function capture() {
+    generateContainer.innerHTML = '';
     var renderScale = inputScale.value;
+    if (inputCarType.value == 'commercial' || inputCarType.value == 'k-commercial') {
+        previewContainer.style.filter = 'grayscale(1) contrast(2) invert(1)';
+    } else {
+        previewContainer.style.filter = 'grayscale(1) contrast(2)';
+    }
+
     var option = {
-        "target": ".capture",
+        'target': '.capture',
         'format': 'png',
         'hd': 1,
+        'displayid': 'diffusePlate',
         'width': previewContainer.offsetWidth * renderScale,
         'height': previewContainer.offsetHeight * renderScale,
-        'bwidth': previewContainer.clientWidth * renderScale,
-        'bheight': previewContainer.clientHeight *renderScale
+        'bwidth': document.body.clientWidth,
+        'bheight': document.body.clientHeight
     }
     GrabzIt("NTlhZjEzYTg2MzljNDcyMDk3MDQzZTEzMDM1ZGVkNWI=")
         .ConvertPage(option)
         .AddTo('generate');
-    console.log('Rendered ' + renderScale + ' bigger!');
 }
 inputGenerate.addEventListener('click', capture);
 

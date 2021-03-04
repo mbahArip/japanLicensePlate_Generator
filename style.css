@@ -128,10 +128,11 @@ input[type=number] {
 }
 
 #generateWrapper {
-  width: 50vw;
+  width: 40vw;
   margin: auto;
   display: block;
   text-align: center;
+  opacity: 1;
 }
 
 #preview {
@@ -426,12 +427,14 @@ input[type=number] {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 45vw;
+  width: 100%;
   margin: auto;
+  -webkit-transition: 1s all;
+  transition: 1s all;
 }
 
 #generate .generatedPlate {
-  width: 100%;
+  width: 75%;
 }
 
 #footer {
