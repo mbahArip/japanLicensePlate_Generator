@@ -359,6 +359,9 @@ function showLoading() {
 }
 function hideLoading() {
     loading.style.display = 'none';
+    if (inputDownload.hasAttribute('disabled')) {
+        inputDownload.removeAttribute('disabled');
+    }
 }
 function generateDiffuse(scale) {
     var option = {
@@ -392,6 +395,7 @@ function generateHeight(scale) {
         'format': 'png',
         'hd': 1,
         'displayclass': 'heightMap',
+        'onfinish': hideLoading,
         'width': previewContainer.offsetWidth * scale,
         'height': previewContainer.offsetHeight * scale,
         'bwidth': document.body.clientWidth,
@@ -414,7 +418,6 @@ function generatePlate() {
     if (inputHeight.checked) {
         generateHeight(renderScale);
     }
-    inputDownload.removeAttribute('disabled');
 }
 inputGenerate.addEventListener('click', generatePlate);
 
