@@ -359,7 +359,8 @@ function capture() {
         'hd': 1,
         'height': 330,
         'width': 660,
-        'bheight': -1
+        'bwidth': previewContainer.offsetWidth,
+        'bheight': previewContainer.offsetHeight
     }
     GrabzIt("NTlhZjEzYTg2MzljNDcyMDk3MDQzZTEzMDM1ZGVkNWI=")
         .ConvertPage(option)
