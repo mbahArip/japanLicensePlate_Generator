@@ -63,24 +63,3 @@ var arrayHiraganaGreen = [
 const imgEmpty = 'url(img/undefined.png)';
 const imgDefault = 'url(img/num/0.png)';
 const imgDash = 'url(img/num/-.png)'
-
-var renderScale = inputScale.value;
-var imgWidth = previewContainer.offsetWidth * renderScale;
-var imgHeight = previewContainer.offsetHeight * renderScale;
-var renderOptionDiffuse = {
-    width: imgWidth,
-    height: imgHeight,
-    style: {
-        'transform': `scale(${renderScale})`,
-        'transform-origin': 'top left',
-    }
-}
-var renderOptionHeight = {
-    width: imgWidth,
-    height: imgHeight,
-    style: {
-        'transform': `scale(${renderScale})`,
-        'transform-origin': 'top left',
-        'filter': 'invert(1) contrast(1)'
-    }
-}

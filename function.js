@@ -352,18 +352,19 @@ function checkScale() {
 inputScale.addEventListener('keyup', checkScale);
 
     //Generate Image
-async function generateDiffuse() {
-    generateContainer.innerHTML = "";
-
-    await domtoimage.toPng(previewContainer, renderOptionDiffuse)
-        .then(function (diffuseImage) {
-            var imgDiffuse = new Image();
-            imgDiffuse.src = diffuseImage;
-            // imgDiffuse.style.margin = 'auto';
-            generateContainer.appendChild(imgDiffuse);
-        })
-        .catch(function (error) {
-            console.error('oops, something went wrong!', error);
-        });
+function capture() {
+    var option = {
+        "target": ".capture",
+        'format': 'png',
+        'hd': 1,
+        'height': 330,
+        'width': 660,
+        'bheight': -1
+    }
+    GrabzIt("NTlhZjEzYTg2MzljNDcyMDk3MDQzZTEzMDM1ZGVkNWI=")
+        .ConvertPage(option)
+        .AddTo('generate');
+    console.log('OK');
 }
-inputGenerate.addEventListener('click', generateDiffuse);
+inputGenerate.addEventListener('click', capture);
+

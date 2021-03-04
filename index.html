@@ -9,6 +9,8 @@
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet' crossorigin="anonymous">
     <title>Plate Generator</title>
     <script src="lib\dom-to-image.min.js"></script>
+    <script src="lib\html2canvas.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@grabzit/js@3.4.8/grabzit.min.js"></script>
 </head>
 
 <body>
@@ -23,7 +25,7 @@
             <h1>Preview</h1>
             <div id="preview" class="clWhite switchBackground">
                 <div class="top">
-                    <div id="prefecture" class="clGreen switchText"></div>
+                    <div id="prefecture" class="clGreen switchText capture"></div>
                     <div id="engine">
                         <div class="engine1 clGreen switchText"></div>
                         <div class="engine2 clGreen switchText"></div>
