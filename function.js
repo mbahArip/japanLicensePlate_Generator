@@ -364,7 +364,7 @@ function capture() {
     }
 
     var option = {
-        'target': '.capture',
+        'target': '#preview',
         'format': 'png',
         'hd': 1,
         'displayid': 'diffusePlate',
