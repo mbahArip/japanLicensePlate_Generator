@@ -353,19 +353,20 @@ inputScale.addEventListener('keyup', checkScale);
 
     //Generate Image
 function capture() {
+    var renderScale = inputScale.value;
     var option = {
         "target": ".capture",
         'format': 'png',
         'hd': 1,
-        'height': 330,
-        'width': 660,
-        'bwidth': previewContainer.offsetWidth,
-        'bheight': previewContainer.offsetHeight
+        'width': previewContainer.offsetWidth * renderScale,
+        'height': previewContainer.offsetHeight * renderScale,
+        'bwidth': previewContainer.clientWidth * renderScale,
+        'bheight': previewContainer.clientHeight *renderScale
     }
     GrabzIt("NTlhZjEzYTg2MzljNDcyMDk3MDQzZTEzMDM1ZGVkNWI=")
         .ConvertPage(option)
         .AddTo('generate');
-    console.log('OK');
+    console.log('Rendered ' + renderScale + ' bigger!');
 }
 inputGenerate.addEventListener('click', capture);
 
