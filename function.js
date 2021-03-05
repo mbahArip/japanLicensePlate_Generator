@@ -18,7 +18,6 @@ function setInputFilter(textbox, inputFilter) {
 setInputFilter(inputEngine, function(value) {
     return /^\d*$/.test(value);
 });
-document.clientHeight = document.clientHeight - document.getElementById('nav').offsetHeight;
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
