@@ -44,6 +44,8 @@ const inputReset = document.getElementById('inputReset');
     //Generate
 const generateContainer = document.getElementById('generate');
 const loading = document.getElementById('loading');
+const imageDiffuse = document.querySelector('.imageDiffuse');
+const imageHeight = document.querySelector('.imageHeight');
 
     //Array
 var arrayHiraganaWhite = [

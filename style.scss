@@ -59,6 +59,34 @@ input[type=number] {
     color: $hexBlack;
 }
 
+#mobileNotice {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    color: #101010;
+
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+
+    i {
+        font-size: 72px;
+    }
+}
+@media only screen and (max-width: 1279px){
+    body {
+        overflow: hidden;
+    }
+    #mobileNotice {
+        display: flex;
+    }
+}
 #notice {
     width: 75vw;
     display: flex;
@@ -85,22 +113,60 @@ input[type=number] {
     }
 }
 
+.nav {
+    height: 0;
+    margin: 0 auto 4rem auto;
+}
+nav {
+    width: 100vw;
+    height: auto;
+    margin: auto;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba($color: $hexBlack, $alpha: .9);
+    font-size: 20px;
+    border-bottom: 1px solid white;
+
+    a {
+        margin: auto 1rem;
+        font-weight: bold;
+        color: white;
+        text-decoration: none;
+    }
+
+    position: sticky;
+    top: 0;
+    z-index: 5;
+
+}
+
 #previewContainer {
     width: 90vw;
-    height: 100%;
+    height: auto;
     margin: 2rem auto;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: flex-start;
 }
-#previewWrapper, #inputWrapper, #generateWrapper {
+#bottomContainer {
+    width: 90vw;
+    height: auto;
+    margin: 2rem auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#previewWrapper, #inputWrapper, #generateWrapper, #downloadWrapper {
     text-align: center;
     background-color: rgba($color: white, $alpha: .1);
     padding: 0 2rem 1rem 2rem;
     border: 1px solid white;
     border-radius: 15px;
-    margin: 0 .5rem;
+    margin: 0 1rem;
 
     h1 {
         font-weight: bold;
@@ -108,12 +174,13 @@ input[type=number] {
         margin: 1rem auto;
     }
 }
-#generateWrapper {
+#generateWrapper, #downloadWrapper {
     width: 40vw;
     margin: auto;
     display: block;
     text-align: center;
     opacity: 1;
+    margin: 1rem 1rem;
 }
 
 #preview {
@@ -347,6 +414,43 @@ input[type=number] {
         margin: .5rem;
     }
 }
+#downloadPreview{
+    margin: 1rem auto;
+    img {
+        width: 75%;
+        object-fit: contain;
+        margin: .25rem;
+    }
+
+    table {
+        width: auto;
+        margin: 1rem auto;
+
+        th {
+            font-size: 18px;
+        }
+        td {
+            padding: 0 1rem;
+        }
+        & td:nth-child(odd) {
+            text-align: left;
+        }
+        & td:nth-child(even) {
+            text-align: left;
+        }
+    }
+}
+#download {
+    margin: 1rem auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    a {
+        color: white;
+        font-weight: bold;
+    }
+}
 
 #footer {
     width: 100vw;
@@ -355,28 +459,42 @@ input[type=number] {
     background-color: #101010;
     border-top: 1px solid white;
     display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
+    flex-direction: row;
+    justify-content: center;
     align-items: center;
     text-align: center;
 
+    #footerContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        margin: auto auto;
+    }
     .contact {
         display: flex;
         flex-direction: row;
         justify-content: center;
         align-items: center;
         margin: .25rem;
+    }
+    .project {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        margin: .25rem;
+    }
+    
+    i {
+        margin: 5px;
         font-size: 32px;
-
-        i {
-            margin: 5px;
-        }
-        a {
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 20px;
-            color: white;
-            margin: 10px;
-        }
+    }
+    a {
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 20px;
+        color: white;
+        margin: 10px;
     }
 }

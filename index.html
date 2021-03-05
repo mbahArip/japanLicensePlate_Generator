@@ -8,12 +8,21 @@
     <link rel="stylesheet" href="style.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet' crossorigin="anonymous">
     <title>Plate Generator</title>
-    <script src="lib\dom-to-image.min.js"></script>
-    <script src="lib\html2canvas.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@grabzit/js@3.4.8/grabzit.min.js"></script>
+    <script src="lib/FileSaver.min.js"></script>
+    <script src="lib/canvas-to-blob.min.js"></script>
 </head>
 
 <body>
+    <div id="navGenerator"></div>
+    <div id="mobileNotice">
+        <i class='bx bx-sad'></i>
+        <h1>Mobile Device not Supported!</h1>
+        <h2>Please access this site from PC / Laptop!</h2>
+    </div>
+    <nav id="nav">
+        <a href="#navGenerator">Generator</a> | <a href="#navResult">Render Result</a> | <a href="#navDownload"> Model Download</a> | <a href="#footer">About</a>
+    </nav>
     <div id="notice">
         <div class="notice">
             <p>For all information and how to generate license plate correctly, please read the explanation <a href="https://en.wikipedia.org/wiki/Vehicle_registration_plates_of_Japan" target="_blank">HERE</a></p>
@@ -124,20 +133,60 @@
 
                 <button id="inputReset" class="btnReset">Reset</button>
                 <br>
+                <a href="#bottomContainer">test</a>
 
             </div>
         </div>
     </div>
+    
+    <div id="bottomContainer">
 
-    <div id="generateWrapper">
-        <h1>Generated Image</h1>
-        <div id="loading">
-            <img src="img\loading.svg">
+        <div id="navResult" class="nav"></div>
+        <div id="generateWrapper">
+            <h1>Generated Image</h1>
+            <div id="loading">
+                <img src="img\loading.svg">
+            </div>
+            <div id="generate">
+                <img src="" class='imageDiffuse'>
+                <img src="" class='imageHeight'>
+            </div>
         </div>
-        <div id="generate">
-            <a href="" id="generateDiffuse" download="diffuseMap"></a>
-            <a href="" id="generateHeight" download="heightMap"></a>
+        
+        <div id="navDownload" class="nav"></div>
+        <div id="downloadWrapper">
+            <h1>Model Download</h1>
+            <span>If you don't have plate 3d model, and too lazy to create.</span>
+
+            <div id="downloadPreview">
+                <img src="img\mdl\preview1.png" loading="lazy">
+                <img src="img\mdl\preview2.png" loading="lazy">
+                <table>
+                    <tr>
+                        <th colspan="2">Model Detail</th>
+                    </tr>
+                    <tr>
+                        <td>Tris</td>
+                        <td>: 10570</td>
+                    </tr>
+                    <tr>
+                        <td>Faces</td>
+                        <td>: 4873</td>
+                    </tr>
+                    <tr>
+                        <td>UV Template</td>
+                        <td>: Yes</td>
+                    </tr>
+                </table>
+            </div>
+            <hr>
+            <div id="download">
+                <h2>Download</h2>
+                <span><a href="img\mdl\mbahArip_jpPlate_obj.rar" download="mbahArip_jpPlate_obj.rar">OBJ</a> | <a href="img\mdl\mbahArip_jpPlate_fbx.rar" download="mbahArip_jpPlate_fbx.rar">FBX</a> | <a href="img\mdl\mbahArip_jpPlate_blend.rar" download="mbahArip_jpPlate_blend.rar">blend</a></span>
+                <a href="img\mdl\mbahArip_jpPlate_template.rar" download="mbahArip_jpPlate_template.rar">UV Template</a>
+            </div>
         </div>
+
     </div>
 
     <div id="notice">
@@ -151,14 +200,27 @@
     </div>
 
     <footer id="footer">
-        If you found any Bugs or Problem, or if you have any Request feel free to message me at:
-        <div class="contact">
-            <i class='bx bxl-twitter'></i>
-            <a href=""> Twitter</a> -
-            <i class='bx bxl-github'></i>
-            <a href=""> Github</a> -
-            <i class='bx bxl-facebook-circle'></i>
-            <a href=""> Facebook</a>
+        <div id="footerContainer">
+            <span>View this project source code here</span>
+            <div class="project">
+                <i class="bx bxl-github"></i>
+                <a href="https://github.com/mbahArip/japanLicensePlate_Generator/">Github Repository</a>
+            </div>
+        </div>
+        <div id="footerContainer">
+            <span>If you found any Bugs or Problem, or if you have any Request feel free to message me at</span>
+            <div class="contact">
+                <i class='bx bxl-twitter'></i>
+                <a href="https://twitter.com/mbahArip_"> Twitter</a> -
+                <i class='bx bxl-github'></i>
+                <a href="https://github.com/mbahArip/"> Github</a> -
+                <i class='bx bxl-facebook-circle'></i>
+                <a href="https://www.facebook.com/Kanoon48Graphics/"> Facebook</a>
+            </div>
+        </div>
+        <div id="footerContainer">
+            <span>If you like this project, please</span>
+            <script type='text/javascript' src='https://ko-fi.com/widgets/widget_2.js'></script><script type='text/javascript'>kofiwidget2.init('Support Me on Ko-fi', '#4a3d70', 'B0B03UE0T');kofiwidget2.draw();</script> 
         </div>
     </footer>
 </body>

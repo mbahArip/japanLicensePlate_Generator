@@ -1,36 +1,3 @@
-
-//Get Car Type
-// function checkJson(region) {
-//     fetch('json/region.json')
-//         .then(response => response.json())
-//         .then(data => {
-//             var count = Object.keys(data[region]).length;
-//             inputPrefecture.innerHTML = "";
-//             for (var i = 0; i < count; i++) {
-//                 var result = data[region][i]["name"];
-//                 inputPrefecture.appendChild(
-//                     new Option(result, result, true, true)
-//                 )
-//             }
-//             inputPrefecture.selectedIndex = "0";
-//         })
-//         .catch(function (error) {
-//             console.error(error);
-//         })
-// }
-
-// function getRegion() {
-//     var region = document.getElementById('inputRegion');
-//     var selected = region.value;
-//     checkJson(selected);
-// }
-// document.getElementById('inputRegion').addEventListener('change', getRegion)
-
-
-// function check() {
-//     previewPrefecture.style.webkitMaskImage = 'url(img/issueOffice/Chubu/Aichi/Komaki/Ichinomiya.png)'
-// }
-
     //General
 function setInputFilter(textbox, inputFilter) {
     ["input", "keydown", "keyup", "mousedown", "mouseup", "select", "contextmenu", "drop"].forEach(function(event) {
@@ -51,8 +18,17 @@ function setInputFilter(textbox, inputFilter) {
 setInputFilter(inputEngine, function(value) {
     return /^\d*$/.test(value);
 });
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
 
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
 
+    //Navbar
 
     //Plate Type
 function getCarType() {
@@ -362,6 +338,13 @@ function hideLoading() {
     if (inputDownload.hasAttribute('disabled')) {
         inputDownload.removeAttribute('disabled');
     }
+    inputDownload.removeAttribute('disabled');
+}
+function setDiffuse(dataUri) {
+    imageDiffuse.src = dataUri;
+}
+function setHeight(dataUri) {
+    imageHeight.src = dataUri;
 }
 function generateDiffuse(scale) {
     var option = {
@@ -369,6 +352,8 @@ function generateDiffuse(scale) {
         'format': 'png',
         'hd': 1,
         'displayclass': 'diffuseMap',
+        'download': 1,
+        'filename': 'diffuseMap.png',
         'onstart': showLoading,
         'onfinish': hideLoading,
         'width': previewContainer.offsetWidth * scale,
@@ -379,7 +364,7 @@ function generateDiffuse(scale) {
 
     GrabzIt(APIkey)
         .ConvertPage(option)
-        .AddTo('generateDiffuse');
+        .DataURI(setDiffuse)
 }
 function generateHeight(scale) {
     if (inputCarType.value == 'commercial' || inputCarType.value == 'k-commercial') {
@@ -404,14 +389,16 @@ function generateHeight(scale) {
 
     GrabzIt(APIkey)
         .ConvertPage(optionHeight)
-        .AddTo('generateHeight');
+        .DataURI(setHeight)
     
     previewContainer.style.filter = '';
     previewTop.style.filter = '';
     previewBottom.style.filter = '';
 }
 function generatePlate() {
-    generateContainer.innerHTML = '';
+    imageDiffuse.src = '';
+    imageHeight.src = '';
+
     var renderScale = inputScale.value;
 
     generateDiffuse(renderScale);
@@ -422,7 +409,34 @@ function generatePlate() {
 inputGenerate.addEventListener('click', generatePlate);
 
     //Download Image
+function fileSave() {
+    var nameType = inputCarType.value;
+    var nameWards = inputWards.value.split(' - ')[0];
+    var nameEngine = inputEngine.value;
+    if (nameEngine == '') {
+        nameEngine = '000';
+    }
+    var nameHiragana = inputHiragana.value;
+    var nameSerial = inputNumber.value;
+    if (nameSerial == '') {
+        nameSerial = '00-00';
+    }
+    var nameScale = inputScale.value;
+    var name = `Map_${nameType}_${nameWards}${nameEngine}_${nameHiragana}${nameSerial}@${nameScale}x`
 
+    var imgDiffuse = document.createElement('a');
+    imgDiffuse.href = imageDiffuse.src;
+    imgDiffuse.download = `diffuse${name}.png`;
+    imgDiffuse.click();
+
+    if (inputHeight.checked) {
+        var imgHeight = document.createElement('a');
+        imgHeight.href = imageHeight.src;
+        imgHeight.download = `height${name}.png`;
+        imgHeight.click();
+    }
+}
+inputDownload.addEventListener('click', fileSave);
 
     //Reset
 function resetSelect(type, text, prev) {
