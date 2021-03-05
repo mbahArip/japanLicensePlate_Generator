@@ -25,6 +25,7 @@
 - Temporary Plate
 - Motorcycle Plate
 - Regional Plate
+- 5 Digit Serial Number
 
 ## Request or Issues
 
