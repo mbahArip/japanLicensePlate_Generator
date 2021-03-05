@@ -28,5 +28,4 @@
 
 ## Request or Issues
 
-For Request, you can contact me directly on [Twitter](https://twitter.com/mbahArip_) or [Facebook](https://www.facebook.com/Kanoon48Graphics/)    
-For Issues or Bugs, please submit [Issues](https://github.com/mbahArip/japanLicensePlate_Generator/issues)
+For issues or request, please submit it directly to [Issues](https://github.com/mbahArip/japanLicensePlate_Generator/issues)
