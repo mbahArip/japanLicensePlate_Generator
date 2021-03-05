@@ -115,7 +115,7 @@ input[type=number] {
 
 .nav {
     height: 0;
-    margin: 0 auto 4rem auto;
+    margin: 0 auto 1rem auto;
 }
 nav {
     width: 100vw;
@@ -180,7 +180,7 @@ nav {
     display: block;
     text-align: center;
     opacity: 1;
-    margin: 1rem 1rem;
+    margin: .5rem auto;
 }
 
 #preview {
@@ -487,14 +487,17 @@ nav {
     }
     
     i {
-        margin: 5px;
+        // margin: 5px;
         font-size: 32px;
     }
     a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         text-decoration: none;
         font-weight: bold;
         font-size: 20px;
         color: white;
-        margin: 10px;
+        margin: auto 1rem;
     }
 }
