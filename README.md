@@ -11,6 +11,11 @@
   Hope this web helping a lot of 3D artist / Game modders creating jp Plate.  
 </p>
 
+## Disclaimer
+
+**YOU CAN** include it on your mods / 3d models, whether it freeware / payware.  
+but, **YOU CAN'T** sell the model or texture generated as it is.
+
 ## Features
 
 - Different Plate types
