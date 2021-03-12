@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 24.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 384 191.52" style="enable-background:new 0 0 384 191.52;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:url(#Sky_1_);}
+	.st1{fill:#97A8D6;}
+</style>
+<linearGradient id="Sky_1_" gradientUnits="userSpaceOnUse" x1="192" y1="191.76001" x2="192" y2="-0.24">
+	<stop  offset="0.32292" style="stop-color:#F2AA6F"/>
+	<stop  offset="0.32857" style="stop-color:#F2AE72"/>
+	<stop  offset="0.39478" style="stop-color:#F7D49B"/>
+	<stop  offset="0.44511" style="stop-color:#FAECB9"/>
+	<stop  offset="0.47331" style="stop-color:#FBF7C5"/>
+	<stop  offset="0.53137" style="stop-color:#EFECC5"/>
+	<stop  offset="0.63313" style="stop-color:#D2D7C7"/>
+	<stop  offset="0.76655" style="stop-color:#A4B6C7"/>
+	<stop  offset="0.9248" style="stop-color:#6791C4"/>
+	<stop  offset="0.97721" style="stop-color:#4F86C5"/>
+</linearGradient>
+<rect id="Sky" y="-0.24" class="st0" width="384" height="192"/>
+<path id="Mountain" class="st1" d="M0,138.48434c0,0,40.71758-5.80775,70.35717-7.20963s44.85991-0.40054,73.29789-9.81311
+	s30.03244-11.48286,36.03244-14.48286S189.34375,108.385,196,107.635s13.21875-4.59375,17.4375-5.25s4.40625-0.28125,6,1.5
+	c0,0,9.46875-5.90625,14.0625-5.90625S241.5625,99.385,259,109.885s34.78125,18.46876,46.78125,23.62501s33.65625,11.625,42,13.3125
+	s15.375,1.125,21.9375-0.75s11.40628-1.59375,14.28125,0.1875c0,4.21875,0,45.25999,0,45.25999H0V138.48434z"/>
+</svg>

@@ -18,17 +18,47 @@ function setInputFilter(textbox, inputFilter) {
 setInputFilter(inputEngine, function(value) {
     return /^\d*$/.test(value);
 });
+
+    //Navigation
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
+        var element = document.querySelector(this.getAttribute('href')).getAttribute('id');
+        var ele = document.getElementById(element);
+        var elePosition = ele.offsetTop;
+        var navHeight = 90;
+        var scrollPosition = elePosition - navHeight;
 
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
+        // document.querySelector(this.getAttribute('href')).scrollIntoView({
+        //     top: scrollPosition,
+        //     behavior: 'smooth'
+        // });
+        window.scrollTo({
+            top: scrollPosition,
             behavior: 'smooth'
-        });
+        })
     });
 });
+function showTop() {
+    var navHidden = document.querySelector('.navHidden')
+    var scrollPosition = window.scrollY;
 
-    //Navbar
+    if (scrollPosition != 0) {
+        navHidden.style.display = 'flex';
+        setTimeout(function () {
+            navHidden.style.opacity = 1;
+        }, 10);
+    }
+    if (scrollPosition == 0) {
+        setTimeout(function () {
+            navHidden.style.opacity = 0;
+        }, 10);
+        setTimeout(function () {
+            navHidden.style.display = 'none';
+        }, 250);
+    }
+}
+window.addEventListener('scroll', showTop);
 
     //Plate Type
 function getCarType() {
@@ -91,6 +121,7 @@ function listPrefecture() {
 
             inputMunicipality.selectedIndex = 0;
             inputWards.selectedIndex = 0;
+            previewPrefecture.style.webkitMaskImage = imgEmpty;
         })
         .catch(function (error) {
             console.error('Error!', error)
@@ -122,6 +153,7 @@ function listMunicipality() {
             }
 
             inputWards.selectedIndex = 0;
+            previewPrefecture.style.webkitMaskImage = imgEmpty;
         })
         .catch(function (error) {
             console.error('Error!', error)
@@ -154,6 +186,7 @@ function listWards() {
                     new Option(wards, wards, false, false)
                 )
             }
+            previewPrefecture.style.webkitMaskImage = imgEmpty;
         })
 }
 inputMunicipality.addEventListener('change', listWards);
@@ -171,6 +204,14 @@ function updatePlateRegion() {
 inputWards.addEventListener('change', updatePlateRegion);
 
     //Engine Class
+function filterEngine(evt){
+    var charCode = (evt.which) ? evt.which : event.keyCode;
+    if (
+        charCode < 48 || charCode > 57
+    )
+        return false;
+    return true;
+}
 function getNumber() {
     var engineNumber = inputEngine.value.split('');
     return engineNumber;
@@ -250,8 +291,13 @@ inputHiragana.addEventListener('change', updateHiragana);
     //NumberPlate
 function filterNumber(evt){
     var charCode = (evt.which) ? evt.which : event.keyCode;
-    if (charCode != 46 && charCode != 45 && charCode > 31
-    && (charCode < 48 || charCode > 57))
+    if (
+        charCode != 32 &&
+        charCode != 46 &&
+        charCode != 45 &&
+        charCode > 31 &&
+        (charCode < 48 || charCode > 57)
+    )
         return false;
     return true;
 }
@@ -261,10 +307,13 @@ function getSerial() {
 }
 function setDigit(cond, i, num) {
     num.style.webkitMaskImage = `url(img/num/${cond[i]}.png)`;
-    if (cond[i] != '-') {
-        num.style.transform = 'scale(1)';
-    } else {
+    if (cond[i] == '-' || cond[i] == '.') {
         num.style.transform = 'scale(.5)';
+    } else {
+        num.style.transform = 'scale(1)';
+    }
+    if (cond[i] == ' ') {
+        num.style.webkitMaskImage = imgEmpty;
     }
 }
 function updateSerial() {
@@ -318,6 +367,10 @@ function updateSerial() {
             break;
     }
 }
+function updateStyle() {
+    var serialNumber = getSerial();
+}
+inputNumber.addEventListener('keyup', updateStyle);
 
     //Check Scale
 function checkScale() {
@@ -349,7 +402,7 @@ function setHeight(dataUri) {
 function generateDiffuse(scale) {
     var option = {
         'target': '#preview',
-        'format': 'png',
+        'format': 'jpg',
         'hd': 1,
         'displayclass': 'diffuseMap',
         'download': 1,
@@ -406,7 +459,19 @@ function generatePlate() {
         generateHeight(renderScale);
     }
 }
-inputGenerate.addEventListener('click', generatePlate);
+
+async function newMethod() {
+    await domtoimage.toPng(previewContainer)
+        .then(function (dataURL) {
+            var img = new Image();
+            img.src = dataURL;
+            generateContainer.appendChild(img);
+        })
+        .catch(function (error) {
+            console.error(error);
+        })
+}
+inputGenerate.addEventListener('click', newMethod);
 
     //Download Image
 function fileSave() {
@@ -466,6 +531,9 @@ function reset() {
     //Wards
     resetSelect(inputWards, 'Wards', 'Please select Municipality first');
     previewPrefecture.style.webkitMaskImage = imgEmpty;
+    //RegionalPride
+    inputRegionalPride.selectedIndex = '0';
+    resetRegionalPridePlate();
 
     //Vehicle Engine
     inputEngine.value = '';
@@ -480,3 +548,119 @@ function reset() {
     updateSerial();
 }
 inputReset.addEventListener('click', reset);
+
+
+    //Regional
+function listRegionalPride() {
+    var wards = inputWards.value.split(' - ');
+    var prefecture = inputPrefecture.value;
+
+    if (arrayRegionalPride.includes(wards[0])) {
+        regionalPrideContainer.style.display = 'flex';
+        imgRegionalColor = `url('img/regionalPride/${prefecture}/${wards[0]}.svg')`;
+        imgRegionalGrayscale = `url('img/regionalPride/${prefecture}/gray_${wards[0]}.svg' )`;
+    } else {
+        regionalPrideContainer.style.display = 'none';
+    }
+    // if (arrayRegionalPride.includes(wards[0])) {
+    //     regionalPrideContainer.style.display = 'flex';
+    //     imgRegionalColor = `url('img/regionalPride/Ibaraki/${wards[0]}.svg')`;
+    // } else {
+    //     regionalPrideContainer.style.display = 'none';
+    // }
+    // return wards;
+}
+inputWards.addEventListener('change', listRegionalPride);
+function updateRegionalPridePlate() {
+    // let wards = listRegionalPride();
+    listRegionalPride();
+    let selected = inputRegionalPride.value;
+    let plateType = inputCarType.value;
+    switch (selected) {
+        case 'regPrideNo':
+            switch (plateType) {
+                case 'private':
+                    changePlate('clWhite', 'clGreen');
+                    previewContainer.style.background = '#EEEEEE';
+                    previewContainer.style.boxShadow = '';
+                    break;
+                case 'commercial':
+                    changePlate('clGreen', 'clWhite');
+                    previewContainer.style.background = '#EEEEEE';
+                    previewContainer.style.boxShadow = '';
+                    break;
+                case 'k-private':
+                    changePlate('clYellow', 'clBlack');
+                    previewContainer.style.background = '#EEEEEE';
+                    previewContainer.style.boxShadow = '';
+                    break;
+                case 'k-commercial':
+                    changePlate('clBlack', 'clYellow');
+                    previewContainer.style.background = '#EEEEEE';
+                    previewContainer.style.boxShadow = '';
+                    break;
+            }
+            break;
+        case 'regPrideGrayscale':
+            previewContainer.style.background = imgRegionalGrayscale;
+            switch (plateType) {
+                case 'private':
+                    changePlate('clWhite', 'clGreen');
+                    previewContainer.style.boxShadow = '';
+                    break;
+                case 'commercial':
+                    changePlate('clWhite', 'clGreen');
+                    previewContainer.style.boxShadow = 'inset 0 0 0 10px #104524';
+                    break;
+                case 'k-private':
+                    changePlate('clWhite', 'clGreen');
+                    previewContainer.style.boxShadow = 'inset 0 0 0 10px #FEC338';
+                    break;
+                case 'k-commercial':
+                    changePlate('clWhite', 'clGreen');
+                    previewContainer.style.boxShadow = 'inset 0 0 0 10px #313131';
+                    break;
+            }
+            break;
+        case 'regPrideColor':
+            previewContainer.style.background = imgRegionalColor;
+            switch (plateType) {
+                case 'private':
+                    changePlate('clWhite', 'clGreen');
+                    previewContainer.style.boxShadow = '';
+                    break;
+                case 'commercial':
+                    changePlate('clWhite', 'clGreen');
+                    previewContainer.style.boxShadow = 'inset 0 0 0 10px #104524';
+                    break;
+                case 'k-private':
+                    changePlate('clWhite', 'clGreen');
+                    previewContainer.style.boxShadow = 'inset 0 0 0 10px #FEC338';
+                    break;
+                case 'k-commercial':
+                    changePlate('clWhite', 'clGreen');
+                    previewContainer.style.boxShadow = 'inset 0 0 0 10px #313131';
+                    break;
+            }
+            break;
+    }
+}
+function resetRegionalPridePlate() {
+    inputRegionalPride.selectedIndex = '0';
+    setTimeout(function () {
+        regionalPrideContainer.removeAttribute('style');
+    }, 0)
+    changePlate('clWhite', 'clGreen');
+    previewContainer.style.background = '#EEEEEE';
+    previewContainer.style.boxShadow = '';
+    updateRegionalPridePlate();
+    setTimeout(function () {
+        listRegionalPride();
+    }, 10)
+}
+inputCarType.addEventListener('change', updateRegionalPridePlate)
+inputRegion.addEventListener('change', resetRegionalPridePlate);
+inputPrefecture.addEventListener('change', resetRegionalPridePlate);
+inputMunicipality.addEventListener('change', resetRegionalPridePlate);
+inputWards.addEventListener('change', resetRegionalPridePlate);
+inputRegionalPride.addEventListener('change', updateRegionalPridePlate);

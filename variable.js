@@ -31,6 +31,10 @@ const inputPrefecture = document.getElementById('inputPrefecture');
 const inputMunicipality = document.getElementById('inputMunicipality');
 const inputWards = document.getElementById('inputWards');
 
+const regionalPrideContainer = document.getElementById('regionalPrideContainer');
+const labelRegionalPride = document.getElementById('labelRegionalPride');
+const inputRegionalPride = document.getElementById('inputRegionalPride');
+
 const inputEngine = document.getElementById('inputEngine');
 const inputHiragana = document.getElementById('inputHiragana');
 const inputNumber = document.getElementById('inputNumber');
@@ -62,9 +66,22 @@ var arrayHiraganaGreen = [
     'か', 'き', 'く', 'け', 'こ',
     'を'
 ]
+var arrayRegionalPride = [
+    'Morioka', 'Iwate', 'Hiraizumi', 'Sendai', 'Yamagata', 'Shonai',
+    'Tsuchiura', 'Tsukuba', 'Maebashi', 'Koshigaya', 'Narita', 'Kashiwa', 'Setagaya', 'Suginami', 'Fujisan',
+    'Niigata', 'Nagaoka', 'Toyama', 'Kanazawa', 'Ishikawa',
+    'Fukui', 'Fujisan', 'Toyota', 'Kasugai',
+    'Shiga', 'Kyoto', 'Nara',
+    'Tottori', 'Fukuyama', 'Shimonoseki', 'Yamaguchi',
+    'Tokushima', 'Kagawa', 'Ehime', 'Kochi',
+    'Nagasaki', 'Sasebo', 'Kumamoto', 'Oita', 'Miyazaki', 'Kagoshima'
+
+]
 
     //General
 const imgEmpty = 'url(img/undefined.png)';
 const imgDefault = 'url(img/num/0.png)';
 const imgDash = 'url(img/num/-.png)';
-const APIkey = 'NTlhZjEzYTg2MzljNDcyMDk3MDQzZTEzMDM1ZGVkNWI=';
+var imgRegionalGrayscale;
+var imgRegionalColor;
+const APIkey = 'NDY1YjFlZTdiMzE3NGY4NmFlOTM5MzdjZWY3YTdkZTk=';
