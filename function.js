@@ -67,33 +67,39 @@ function getCarType() {
     
     switch (carType) {
         case 'private':
-            changePlate('clWhite', 'clGreen');
+            changePlate('clWhite');
+            changeText('filterGreen');
             break;
         case 'commercial':
-            changePlate('clGreen', 'clWhite');
+            changePlate('clGreen');
+            changeText('filterWhite');
             break;
         case 'k-private':
-            changePlate('clYellow', 'clBlack');
+            changePlate('clYellow');
+            changeText('filterBlack');
             break;
         case 'k-commercial':
-            changePlate('clBlack', 'clYellow');
+            changePlate('clBlack');
+            changeText('filterYellow');
             break;
     }
 }
-function changePlate(background, text) {
+function changePlate(background) {
     plateBg.classList.remove('clWhite');
     plateBg.classList.remove('clGreen');
     plateBg.classList.remove('clYellow');
     plateBg.classList.remove('clBlack');
     plateBg.classList.add(background);
+}
+function changeText(text) {
     for (i = 0; i < plateText.length; i++){
-        plateText[i].classList.remove('clWhite');
-        plateText[i].classList.remove('clGreen');
-        plateText[i].classList.remove('clYellow');
-        plateText[i].classList.remove('clBlack');
+        plateText[i].classList.remove('filterWhite')
+        plateText[i].classList.remove('filterGreen')
+        plateText[i].classList.remove('filterYellow')
+        plateText[i].classList.remove('filterBlack')
         plateText[i].classList.add(text);
     }
-} 
+}
 inputCarType.addEventListener('change', getCarType);
 
     //Region
@@ -121,7 +127,7 @@ function listPrefecture() {
 
             inputMunicipality.selectedIndex = 0;
             inputWards.selectedIndex = 0;
-            previewPrefecture.style.webkitMaskImage = imgEmpty;
+            previewPrefecture.style.backgroundImage = imgEmpty;
         })
         .catch(function (error) {
             console.error('Error!', error)
@@ -153,7 +159,7 @@ function listMunicipality() {
             }
 
             inputWards.selectedIndex = 0;
-            previewPrefecture.style.webkitMaskImage = imgEmpty;
+            previewPrefecture.style.backgroundImage = imgEmpty;
         })
         .catch(function (error) {
             console.error('Error!', error)
@@ -186,7 +192,7 @@ function listWards() {
                     new Option(wards, wards, false, false)
                 )
             }
-            previewPrefecture.style.webkitMaskImage = imgEmpty;
+            previewPrefecture.style.backgroundImage = imgEmpty;
         })
 }
 inputMunicipality.addEventListener('change', listWards);
@@ -199,7 +205,7 @@ function updatePlateRegion() {
     let romaji = getWards.split(' - ');
     let imgName = `img/issueOffice/${getRegion}/${getPrefecture}/${getMunicipality}/${romaji[0]}.png`;
     
-    previewPrefecture.style.webkitMaskImage = `url(${imgName})`;
+    previewPrefecture.style.backgroundImage = `url(${imgName})`;
 }
 inputWards.addEventListener('change', updatePlateRegion);
 
@@ -221,23 +227,23 @@ function updateNumber() {
     
     switch (engineNumber.length) {
         case 0:
-            previewEngine1.style.webkitMaskImage = imgDefault;
-            previewEngine2.style.webkitMaskImage = imgDefault;
-            previewEngine3.style.webkitMaskImage = imgDefault;
+            previewEngine1.style.backgroundImage = imgDefault;
+            previewEngine2.style.backgroundImage = imgDefault;
+            previewEngine3.style.backgroundImage = imgDefault;
             break;
         case 1:
-            previewEngine1.style.webkitMaskImage = `url(img/num/${engineNumber[0]}.png)`;
-            previewEngine2.style.webkitMaskImage = imgDefault;
+            previewEngine1.style.backgroundImage = `url(img/num/num_${engineNumber[0]}.svg)`;
+            previewEngine2.style.backgroundImage = imgDefault;
             break;
         case 2:
-            previewEngine1.style.webkitMaskImage = `url(img/num/${engineNumber[0]}.png)`;
-            previewEngine2.style.webkitMaskImage = `url(img/num/${engineNumber[1]}.png)`;
-            previewEngine3.style.webkitMaskImage = imgDefault;
+            previewEngine1.style.backgroundImage = `url(img/num/num_${engineNumber[0]}.svg)`;
+            previewEngine2.style.backgroundImage = `url(img/num/num_${engineNumber[1]}.svg)`;
+            previewEngine3.style.backgroundImage = imgDefault;
             break;
         case 3:
-            previewEngine1.style.webkitMaskImage = `url(img/num/${engineNumber[0]}.png)`;
-            previewEngine2.style.webkitMaskImage = `url(img/num/${engineNumber[1]}.png)`;
-            previewEngine3.style.webkitMaskImage = `url(img/num/${engineNumber[2]}.png)`;
+            previewEngine1.style.backgroundImage = `url(img/num/num_${engineNumber[0]}.svg)`;
+            previewEngine2.style.backgroundImage = `url(img/num/num_${engineNumber[1]}.svg)`;
+            previewEngine3.style.backgroundImage = `url(img/num/num_${engineNumber[2]}.svg)`;
             break;
     }
 }
@@ -260,7 +266,7 @@ function listHiragana() {
                 new Option(arrayHiraganaWhite[i], arrayHiraganaWhite[i], false, false)
             )
         }
-        previewHiragana.style.webkitMaskImage = imgEmpty;
+        previewHiragana.style.backgroundImage = imgEmpty;
     } else {
         let countLength = arrayHiraganaGreen.length;
         inputHiragana.innerHTML = "";
@@ -276,15 +282,15 @@ function listHiragana() {
                 new Option(arrayHiraganaGreen[i], arrayHiraganaGreen[i], false, false)
             )
         }
-        previewHiragana.style.webkitMaskImage = imgEmpty;
+        previewHiragana.style.backgroundImage = imgEmpty;
     }
 }
 inputCarType.addEventListener('change', listHiragana);
 function updateHiragana() {
     let hiragana = inputHiragana.value;
-    let imgName = `img/hiragana/${hiragana}.png`;
+    let imgName = `img/hiragana/hiragana_${hiragana}.svg`;
 
-    previewHiragana.style.webkitMaskImage = `url(${imgName})`;
+    previewHiragana.style.backgroundImage = `url(${imgName})`;
 }
 inputHiragana.addEventListener('change', updateHiragana);
 
@@ -306,14 +312,14 @@ function getSerial() {
     return serialNumber;
 }
 function setDigit(cond, i, num) {
-    num.style.webkitMaskImage = `url(img/num/${cond[i]}.png)`;
+    num.style.backgroundImage = `url(img/num/num_${cond[i]}.svg)`;
     if (cond[i] == '-' || cond[i] == '.') {
         num.style.transform = 'scale(.5)';
     } else {
         num.style.transform = 'scale(1)';
     }
     if (cond[i] == ' ') {
-        num.style.webkitMaskImage = imgEmpty;
+        num.style.backgroundImage = imgEmpty;
     }
 }
 function updateSerial() {
@@ -321,11 +327,11 @@ function updateSerial() {
     
     switch (serialNumber.length) {
         case 0:
-            previewDigit1.style.webkitMaskImage = imgDefault;
-            previewDigit2.style.webkitMaskImage = imgDefault;
-            previewDigit3.style.webkitMaskImage = imgDash;
-            previewDigit4.style.webkitMaskImage = imgDefault;
-            previewDigit5.style.webkitMaskImage = imgDefault;
+            previewDigit1.style.backgroundImage = imgDefault;
+            previewDigit2.style.backgroundImage = imgDefault;
+            previewDigit3.style.backgroundImage = imgDash;
+            previewDigit4.style.backgroundImage = imgDefault;
+            previewDigit5.style.backgroundImage = imgDefault;
             previewDigit1.style.transform = 'scale(1)'
             previewDigit2.style.transform = 'scale(1)'
             previewDigit3.style.transform = 'scale(.5)'
@@ -334,20 +340,20 @@ function updateSerial() {
             break;
         case 1:
             setDigit(serialNumber, 0, previewDigit1);
-            previewDigit2.style.webkitMaskImage = imgDefault;
+            previewDigit2.style.backgroundImage = imgDefault;
             previewDigit2.style.transform = 'scale(1)';
             break;
         case 2:
             setDigit(serialNumber, 0, previewDigit1);
             setDigit(serialNumber, 1, previewDigit2);
-            previewDigit3.style.webkitMaskImage = imgDash;
+            previewDigit3.style.backgroundImage = imgDash;
             previewDigit3.style.transform = 'scale(.5)';
             break;
         case 3:
             setDigit(serialNumber, 0, previewDigit1);
             setDigit(serialNumber, 1, previewDigit2);
             setDigit(serialNumber, 2, previewDigit3);
-            previewDigit4.style.webkitMaskImage = imgDefault;
+            previewDigit4.style.backgroundImage = imgDefault;
             previewDigit4.style.transform = 'scale(1)';
             break;
         case 4:
@@ -355,7 +361,7 @@ function updateSerial() {
             setDigit(serialNumber, 1, previewDigit2);
             setDigit(serialNumber, 2, previewDigit3);
             setDigit(serialNumber, 3, previewDigit4);
-            previewDigit5.style.webkitMaskImage = imgDefault;
+            previewDigit5.style.backgroundImage = imgDefault;
             previewDigit5.style.transform = 'scale(1)';
             break;
         case 5:
@@ -460,21 +466,33 @@ function generatePlate() {
     }
 }
 
-async function newMethod() {
-    await domtoimage.toPng(previewContainer)
-        .then(function (dataURL) {
+function newMethod() {
+    let imageScale = inputScale.value;
+    let option = {
+        width: previewContainer.clientWidth * imageScale,
+        height: previewContainer.clientHeight * imageScale,
+        style: {
+            'transform': `scale(${imageScale})`,
+            'transform-origin': 'top left'
+        }
+    }
+    domtoimage.toPng(previewContainer, option)
+        .then(function (dataUrl) {
+            generateContainer.innerHTML = '';
             var img = new Image();
-            img.src = dataURL;
-            generateContainer.appendChild(img);
-        })
-        .catch(function (error) {
-            console.error(error);
-        })
+            img.src = dataUrl;
+            generateContainer.appendChild(img)
+            inputDownload.removeAttribute('disabled');
+    })
+    .catch(function (error) {
+        console.error('oops, something went wrong!', error);
+    });
 }
 inputGenerate.addEventListener('click', newMethod);
 
     //Download Image
 function fileSave() {
+    var source = document.querySelector('#generate img').src;
     var nameType = inputCarType.value;
     var nameWards = inputWards.value.split(' - ')[0];
     var nameEngine = inputEngine.value;
@@ -490,16 +508,16 @@ function fileSave() {
     var name = `Map_${nameType}_${nameWards}${nameEngine}_${nameHiragana}${nameSerial}@${nameScale}x`
 
     var imgDiffuse = document.createElement('a');
-    imgDiffuse.href = imageDiffuse.src;
+    imgDiffuse.href = source;
     imgDiffuse.download = `diffuse${name}.png`;
     imgDiffuse.click();
 
-    if (inputHeight.checked) {
-        var imgHeight = document.createElement('a');
-        imgHeight.href = imageHeight.src;
-        imgHeight.download = `height${name}.png`;
-        imgHeight.click();
-    }
+    // if (inputHeight.checked) {
+    //     var imgHeight = document.createElement('a');
+    //     imgHeight.href = imageHeight.src;
+    //     imgHeight.download = `height${name}.png`;
+    //     imgHeight.click();
+    // }
 }
 inputDownload.addEventListener('click', fileSave);
 
@@ -530,7 +548,7 @@ function reset() {
     resetSelect(inputMunicipality, 'Municipality', 'Please select Prefecture first');
     //Wards
     resetSelect(inputWards, 'Wards', 'Please select Municipality first');
-    previewPrefecture.style.webkitMaskImage = imgEmpty;
+    previewPrefecture.style.backgroundImage = imgEmpty;
     //RegionalPride
     inputRegionalPride.selectedIndex = '0';
     resetRegionalPridePlate();
@@ -541,7 +559,7 @@ function reset() {
 
     //Hiragana
     resetSelect(inputHiragana, 'Hiragana', 'Please select Plate type first');
-    previewHiragana.style.webkitMaskImage = imgEmpty;
+    previewHiragana.style.backgroundImage = imgEmpty;
 
     //NumberPlate
     inputNumber.value = '';
@@ -580,22 +598,26 @@ function updateRegionalPridePlate() {
         case 'regPrideNo':
             switch (plateType) {
                 case 'private':
-                    changePlate('clWhite', 'clGreen');
+                    changePlate('clWhite');
+                    changeText('filterGreen');
                     previewContainer.style.background = '#EEEEEE';
                     previewContainer.style.boxShadow = '';
                     break;
                 case 'commercial':
-                    changePlate('clGreen', 'clWhite');
+                    changePlate('clGreen');
+                    changeText('filterWhite');
                     previewContainer.style.background = '#EEEEEE';
                     previewContainer.style.boxShadow = '';
                     break;
                 case 'k-private':
-                    changePlate('clYellow', 'clBlack');
+                    changePlate('clYellow');
+                    changeText('filterBlack');
                     previewContainer.style.background = '#EEEEEE';
                     previewContainer.style.boxShadow = '';
                     break;
                 case 'k-commercial':
-                    changePlate('clBlack', 'clYellow');
+                    changePlate('clBlack');
+                    changeText('filterYellow');
                     previewContainer.style.background = '#EEEEEE';
                     previewContainer.style.boxShadow = '';
                     break;
@@ -605,19 +627,23 @@ function updateRegionalPridePlate() {
             previewContainer.style.background = imgRegionalGrayscale;
             switch (plateType) {
                 case 'private':
-                    changePlate('clWhite', 'clGreen');
+                    changePlate('clWhite');
+                    changeText('filterGreen');
                     previewContainer.style.boxShadow = '';
                     break;
                 case 'commercial':
-                    changePlate('clWhite', 'clGreen');
+                    changePlate('clWhite');
+                    changeText('filterGreen');
                     previewContainer.style.boxShadow = 'inset 0 0 0 10px #104524';
                     break;
                 case 'k-private':
-                    changePlate('clWhite', 'clGreen');
+                    changePlate('clWhite');
+                    changeText('filterGreen');
                     previewContainer.style.boxShadow = 'inset 0 0 0 10px #FEC338';
                     break;
                 case 'k-commercial':
-                    changePlate('clWhite', 'clGreen');
+                    changePlate('clWhite');
+                    changeText('filterGreen');
                     previewContainer.style.boxShadow = 'inset 0 0 0 10px #313131';
                     break;
             }
@@ -626,19 +652,23 @@ function updateRegionalPridePlate() {
             previewContainer.style.background = imgRegionalColor;
             switch (plateType) {
                 case 'private':
-                    changePlate('clWhite', 'clGreen');
+                    changePlate('clWhite');
+                    changeText('filterGreen');
                     previewContainer.style.boxShadow = '';
                     break;
                 case 'commercial':
-                    changePlate('clWhite', 'clGreen');
+                    changePlate('clWhite');
+                    changeText('filterGreen');
                     previewContainer.style.boxShadow = 'inset 0 0 0 10px #104524';
                     break;
                 case 'k-private':
-                    changePlate('clWhite', 'clGreen');
+                    changePlate('clWhite');
+                    changeText('filterGreen');
                     previewContainer.style.boxShadow = 'inset 0 0 0 10px #FEC338';
                     break;
                 case 'k-commercial':
-                    changePlate('clWhite', 'clGreen');
+                    changePlate('clWhite');
+                    changeText('filterGreen');
                     previewContainer.style.boxShadow = 'inset 0 0 0 10px #313131';
                     break;
             }
@@ -658,9 +688,3 @@ function resetRegionalPridePlate() {
         listRegionalPride();
     }, 10)
 }
-inputCarType.addEventListener('change', updateRegionalPridePlate)
-inputRegion.addEventListener('change', resetRegionalPridePlate);
-inputPrefecture.addEventListener('change', resetRegionalPridePlate);
-inputMunicipality.addEventListener('change', resetRegionalPridePlate);
-inputWards.addEventListener('change', resetRegionalPridePlate);
-inputRegionalPride.addEventListener('change', updateRegionalPridePlate);

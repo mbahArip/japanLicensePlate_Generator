@@ -84,4 +84,4 @@ const imgDefault = 'url(img/num/0.png)';
 const imgDash = 'url(img/num/-.png)';
 var imgRegionalGrayscale;
 var imgRegionalColor;
-const APIkey = 'NDY1YjFlZTdiMzE3NGY4NmFlOTM5MzdjZWY3YTdkZTk=';
+const APIkey = 'NTlhZjEzYTg2MzljNDcyMDk3MDQzZTEzMDM1ZGVkNWI=';

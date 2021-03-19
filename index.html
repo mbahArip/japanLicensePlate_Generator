@@ -53,7 +53,7 @@
                 jpPlateGenerator
                 <div class="verWrapper">
                     <span class="version">v1.0</span>
-                    <a href="">[changelog]</a>
+                    <!-- <a href="">[changelog]</a> -->
                 </div>
 
             </div>
@@ -77,11 +77,9 @@
     <div id="top">
         <!-- Top Notice -->
         <div id="notice">
-            <div class="notice noticeAlert">
+            <div class="notice noticeGreen">
                 <p>
-                    Currently generating image not working! <br>
-                    Fixing it ASAP. <br>
-                    If you using chrome, you can use <a href="https://www.youtube.com/watch?v=Gb9rAccvEB0">Capture Node Screenshot</a>.
+                    New image generate method implemented, generate height currently disabled!
                 </p>
             </div>
             <div class="notice noticeAlert">
@@ -109,21 +107,22 @@
                 <h1>Preview</h1>
                 <div id="preview" class="clWhite switchBackground">
                     <div class="top">
-                        <div id="prefecture" class="clGreen switchText capture"></div>
+                        <div id="prefecture" class="switchText capture"></div>
                         <div id="engine">
-                            <div class="engine1 clGreen switchText"></div>
-                            <div class="engine2 clGreen switchText"></div>
-                            <div class="engine3 clGreen switchText"></div>
+                            <div class="engine1 switchText"></div>
+                            <div class="engine2 switchText"></div>
+                            <div class="engine3 switchText"></div>
                         </div>
                     </div>
                     <div class="bottom">
-                        <div id="hiragana" class="clGreen switchText"></div>
+                        <div id="hiragana" class="switchText"></div>
                         <div id="number">
-                            <div class="num1 clGreen switchText"></div>
-                            <div class="num2 clGreen switchText"></div>
-                            <div class="num3 clGreen switchText"></div>
-                            <div class="num4 clGreen switchText"></div>
-                            <div class="num5 clGreen switchText"></div>
+                            <div class="num1 switchText serial filterGreen"></div>
+                            <div class="num2 switchText serial filterGreen"></div>
+                            <div class="num3 switchText serial filterGreen"></div>
+                            <div class="num4 switchText serial filterGreen"></div>
+                            <div class="num5 switchText serial filterGreen"></div>
+                            <div class="num6 switchText serial filterGreen"></div>
                         </div>
                     </div>
                 </div>
@@ -220,7 +219,7 @@
 
                     <!-- Height Map -->
                     <span id="inputHeightContainer">
-                        <input type="checkbox" name="inputHeight" id="inputHeight"> Generate Height Map
+                        <!-- <input type="checkbox" name="inputHeight" id="inputHeight"> Generate Height Map -->
                     </span>
 
                     <!-- Button -->
