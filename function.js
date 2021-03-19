@@ -588,7 +588,7 @@ function listRegionalPride() {
     // }
     // return wards;
 }
-inputWards.addEventListener('change', listRegionalPride);
+// inputWards.addEventListener('change', listRegionalPride);
 function updateRegionalPridePlate() {
     // let wards = listRegionalPride();
     listRegionalPride();
