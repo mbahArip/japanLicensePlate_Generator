@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Style -->
-    <link href="style.css" rel="stylesheet" crossorigin="anonymous">
+    <link href="css/ex.css" rel="stylesheet" crossorigin="anonymous">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet' crossorigin="anonymous">
 
     <!-- Primary Meta Tags -->
@@ -30,306 +30,470 @@
     <meta property="twitter:image" content="https://github.com/mbahArip/japanLicensePlate_Generator/blob/master/preview_jpPlateGenerator.png?raw=true">
 
     <!-- Script -->
-    <script src="lib\grabzit.min.js"></script>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/dom-to-image@2.6.0/dist/dom-to-image.min.js"></script> -->
-    <script src="lib\dom-to-image.min.js"></script>
+    <script src="lib/dom-to-image.min.js"></script>
+    <script src="lib/jszip.min.js"></script>
+    <script src="lib/FileSaver.min.js"></script>
 </head>
 
-<body>
-    <div id="mobileNotice">
-        <i class='bx bx-sad'></i>
-        <h1>Mobile Device not Supported!</h1>
-        <h2>Please access this site from PC / Laptop!</h2>
+<!-- 
+    _       _____  _       _                            
+   (_)     |  __ \| |     | |                           
+    _ _ __ | |__) | | __ _| |_ ___                      
+   | | '_ \|  ___/| |/ _` | __/ _ \                     
+   | | |_) | |    | | (_| | ||  __/                     
+   | | .__/|_|_   |_|\__,_|\__\___|       _             
+  _/ | | / ____|                         | |            
+ |__/|_|| |  __  ___ _ __   ___ _ __ __ _| |_ ___  _ __ 
+        | | |_ |/ _ \ '_ \ / _ \ '__/ _` | __/ _ \| '__|
+        | |__| |  __/ | | |  __/ | | (_| | || (_) | |   
+         \_____|\___|_| |_|\___|_|  \__,_|\__\___/|_|   
+                                                        
+-->
+
+<body onload="init()">
+    <div id="top"></div>
+    <div id="navbarMenuBurger">
+        <div id="navbarBurgerClose" onclick="layoutBurger.burgerClose()">X</div>
+        <ul>
+            <li class="burgerMenu">
+                <button id="btnBurgerGenerator" onclick="layoutBurger.changeBurger(generatorContainer, 'generator')">Generator</button>
+            </li>
+            <!-- <li class="burgerMenu">
+                <a href="#result">Result</a>
+            </li> -->
+            <li class="burgerMenu">
+                <button id="btnBurgerDownload" onclick="layoutBurger.changeBurger(downloadContainer, 'download')">Model Download</button>
+            </li>
+            <!-- <li class="burgerMenu">
+                <button id="btnBurgerDiscord">Discord Bot</button>
+            </li> -->
+            <!-- <li class="burgerMenu">
+                <button id="btnBurgerAbout">About</button>
+            </li> -->
+        </ul>
     </div>
-
-    <nav id="nav">
-        <!-- Navigation Bookmark -->
-        <div id="top" class="navBookmark bookmarkTop"></div>
-        <!-- Navigation Block -->
-        <div id="navBlock"></div>
-        <!-- Navbar Float -->
-        <div id="float">
-            <div class="logo">
-                jpPlateGenerator
-                <div class="verWrapper">
-                    <span class="version">v1.0</span>
-                    <!-- <a href="">[changelog]</a> -->
-                </div>
-
-            </div>
-            <div class="menu">
-                <a href="#navGenerator">Generator</a>
-                |
-                <a href="#navResult">Render Result</a>
-                |
-                <a href="#navDownload"> Model Download</a>
-                |
-                <a href="#navFooter">About</a>
-                <div class="navHidden">
-                    |
-                    <a href="#top">Top</a>
-                </div>
-            </div>
+    <nav id="navbar">
+        <div id="navbarLogo">
+            <img src="img\logo.svg" alt="jpPlateGenerator">
+            <span class="version">v1.1/b0321</span>
         </div>
-        <!-- <a href="#" onclick="window.open('text.txt', '_blank');">changelog</a> -->
+        <div id="navbarMenu">
+            <ul>
+                <li>
+                    <button id="btnNavGenerator" onclick="layoutNavigation.changePage(generatorContainer, 'generator')">
+                        Generator
+                        <div class="underline"></div>
+                    </button>
+                </li>
+                <!-- <li>
+                    <a href="#result">
+                        Result
+                        <div class="underline"></div>
+                    </a>
+                </li> -->
+                <li>
+                    <button id="btnNavDownload" onclick="layoutNavigation.changePage(downloadContainer, 'download')">
+                        Model Download
+                        <div class="underline"></div>
+                    </button>
+                </li>
+                <!-- <li>
+                    <button id="btnNavDiscord" onclick="bot()">
+                        Discord Bot
+                        <div class="underline"></div>
+                    </button>
+                </li> -->
+                <!-- <li>
+                    <button id="btnSlideAbout">
+                        About
+                        <div class="underline"></div>
+                    </button>
+                </li> -->
+            </ul>
+        </div>
+        <div id="navbarBurger" onclick="layoutBurger.burgerOpen()">
+            <div id="bar1"></div>
+            <div id="bar2"></div>
+            <div id="bar3"></div>
+        </div>
     </nav>
-
-    <div id="top">
-        <!-- Top Notice -->
-        <div id="notice">
-            <div class="notice noticeGreen">
-                <p>
-                    New image generate method implemented, generate height currently disabled!
-                </p>
+    <div id="notification">
+        <!--          Top Notification        -->
+        <div id="noticeChangelog">
+            <div class="changelogTop">
+                <span>Last Update</span>
+                <button id="buttonChangelog" onclick="layoutNotification.expandChangelog()">[ Expand to see details ]</button>
             </div>
-            <div class="notice noticeAlert">
-                <p>
-                    This site are made for 3D Artist, or Game Modders. <br>
-                    I don't take any responsibility for anything that generated by the user. <br>
-                    The user itself will take all responsibility for all texture user generate! <br>
-                    Please use it wisely.
-                </p>
-            </div>
-            <div class="notice">
-                <p>For all information and how to generate license plate correctly, please read the explanation <a href="https://en.wikipedia.org/wiki/Vehicle_registration_plates_of_Japan" target="_blank">HERE</a></p>
-            </div>
-        </div>
-    </div>
-
-    <div id="content">
-        <!-- Navigation Bookmark -->
-        <div id="navGenerator" class="navBookmark"></div>
-
-        <!-- Generator Container -->
-        <div id="generatorContainer">
-            <!-- Preview Container -->
-            <div id="previewWrapper">
-                <h1>Preview</h1>
-                <div id="preview" class="clWhite switchBackground">
-                    <div class="top">
-                        <div id="prefecture" class="switchText capture"></div>
-                        <div id="engine">
-                            <div class="engine1 switchText"></div>
-                            <div class="engine2 switchText"></div>
-                            <div class="engine3 switchText"></div>
-                        </div>
-                    </div>
-                    <div class="bottom">
-                        <div id="hiragana" class="switchText"></div>
-                        <div id="number">
-                            <div class="num1 switchText serial filterGreen"></div>
-                            <div class="num2 switchText serial filterGreen"></div>
-                            <div class="num3 switchText serial filterGreen"></div>
-                            <div class="num4 switchText serial filterGreen"></div>
-                            <div class="num5 switchText serial filterGreen"></div>
-                            <div class="num6 switchText serial filterGreen"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Input Container -->
-            <div id="inputWrapper">
-                <h1>Input</h1>
-                <div id="editor">
-                    <!-- Plate Type -->
-                    <label>Plate Type</label>
-                    <select name="inputCarType" id="inputCarType">
-                        <option value="" disabled selected hidden>Plate Type</option>
-                        <option value="private">Private Vehicle</option>
-                        <option value="commercial">Commercial Vehicle</option>
-                        <option value="k-private">Kei Vehicle</option>
-                        <option value="k-commercial">Commercial Kei Vehicle</option>
-                        <option value="temp" disabled>Temporary Plate (Will be updated later)</option>
-                    </select>
-                    <br>
-
-                    <!-- Region -->
-                    <label>Region</label>
-                    <select name="inputRegion" id="inputRegion">
-                        <option value="" disabled selected hidden>Region</option>
-                        <option value="Hokkaido">Hokkaido</option>
-                        <option value="Tohoku">Tohoku</option>
-                        <option value="Kanto">Kanto</option>
-                        <option value="Chubu">Chubu</option>
-                        <option value="Kansai">Kansai</option>
-                        <option value="Chugoku">Chugoku</option>
-                        <option value="Shikoku">Shikoku</option>
-                        <option value="Kyushu">Kyushu</option>
-                    </select>
-
-                    <label>Prefecture</label>
-                    <select name="inputPrefecture" id="inputPrefecture">
-                        <option value="" disabled selected hidden>Prefecture</option>
-                        <option value="" disabled>Please select Region first</option>
-                    </select>
-
-                    <label>Municipality</label>
-                    <select name="inputMunicipality" id="inputMunicipality">
-                        <option value="" disabled selected hidden>Municipality</option>
-                        <option value="" disabled>Please select Prefecture first</option>
-                    </select>
-
-                    <label>Wards</label>
-                    <select name="inputWards" id="inputWards">
-                        <option value="" disabled selected hidden>Wards</option>
-                        <option value="" disabled>Please select Municipality first</option>
-                    </select>
-                    <br>
-
-                    <div id="regionalPrideContainer">
-                        <label id="labelRegionalPride">Regional Pride Plate</label>
-                        <select name="inputRegionalPride" id="inputRegionalPride">
-                            <option value="regPrideNo" selected>Don't use regional pride plate</option>
-                            <option value="regPrideGrayscale">Use regional pride plate - Grayscale</option>
-                            <option value="regPrideColor">Use regional pride plate - Colored</option>
-                        </select>
-                        <br>
-                    </div>
-
-                    <!-- Engine Class -->
-                    <label>Vehicle Engine Class</label>
-                    <span class="sub">Please read wiki information first!</span>
-                    <input id="inputEngine" type="text" placeholder="3 digits vehicle engine class" maxlength="3" oninput="updateNumber()" onkeypress="return filterEngine(event);" autocomplete="off">
-                    <br>
-
-                    <!-- Hiragana -->
-                    <label>Hiragana Character</label>
-                    <span class="sub">Please read wiki information first!</span>
-                    <select name="inputHiragana" id="inputHiragana">
-                        <option value="" disabled selected hidden>Hiragana</option>
-                        <option value="" disabled>Please select Plate type first</option>
-                    </select>
-
-                    <!-- Serial Number -->
-                    <label>Number Plate</label>
-                    <span class="sub">Allowed Character :</span>
-                    <span class="sub">Number (0-9), Dash (-), Dot (.), and Space</span>
-                    <input id="inputNumber" type="text" placeholder="Plate Number" maxlength="5" oninput="updateSerial()" onkeypress="return filterNumber(event);" autocomplete="off">
-                    <br>
-
-                    <!-- Render Scale -->
-                    <label>Output Scale</label>
-                    <span class="sub">Scale the image (default 1; max 5)</span>
-                    <input id="inputScale" type="number" maxlength="1" value="1" min="1" max="5">
-                    <p class="warning">Attention! <br>
-                        For game, 2x scale are more than enough!
-                    </p>
-                    <br>
-
-                    <!-- Height Map -->
-                    <span id="inputHeightContainer">
-                        <!-- <input type="checkbox" name="inputHeight" id="inputHeight"> Generate Height Map -->
-                    </span>
-
-                    <!-- Button -->
-                    <button id="inputGenerate" class="btnGenerate">Generate</button>
-                    <button id="inputDownload" class="btnDownload" disabled>Download Image</button>
-                    <br>
-
-                    <button id="inputReset" class="btnReset">Reset</button>
-                    <br>
-                </div>
+            <div class="changelogExpand">
+                <table id="changelogTable">
+                    <tr>
+                        <td>
+                            [ Date Placeholder ]
+                        </td>
+                        <td>
+                            - Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit aut fuga quis, debitis iste non.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            [ Date Placeholder ]
+                        </td>
+                        <td>
+                            - Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit aut fuga quis, debitis iste non.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            [ Date Placeholder ]
+                        </td>
+                        <td>
+                            - Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit aut fuga quis, debitis iste non.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            [ Date Placeholder ]
+                        </td>
+                        <td>
+                            - Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit aut fuga quis, debitis iste non.
+                        </td>
+                    </tr>
+                </table>
             </div>
         </div>
-
-        <!-- Result Container -->
-        <div id="bottomContainer">
-            <!-- Navigation Bookmark -->
-            <div id="navResult" class="navBookmark"></div>
-
-            <!-- Render Result -->
-            <div id="generateWrapper">
-                <h1>Generated Image</h1>
-                <div id="loading">
-                    <img src="img\loading.svg">
-                </div>
-                <div id="generate">
-                    <img src="" class='imageDiffuse'>
-                    <img src="" class='imageHeight'>
-                </div>
+        <div id="noticeTerms">
+            <div class="termsTop">
+                <span>Please read usage terms before using this site!</span>
+                <button id="buttonTerms" onclick="layoutNotification.expandTerms()">[ Expand to see terms ]</button>
             </div>
-
-            <!-- Notice Normal Map Generator -->
-            <div id="notice">
-                <div class="notice noticeGenerate">
+            <div class="termsExpand">
+                <div class="terms">
+                    <h2>By using this website, user agree to this terms.</h2>
+                    <h3>
+                        - User won't sell / earn any money from stuff from this site as it is.
+                    </h3>
                     <p>
-                        You can generate normal map using online generator or photoshop! <br>
-                        I recommend <a href="https://cpetry.github.io/NormalMap-Online/" target="_blank">this site</a> by Christian Petry for generating normal map online.
+                        For example, User can't sell the texture as it is, or sell the sample models as it is. <br>
+                        But, User can use it on his own commercial works / payware mods.
+                    </p>
+                    <h3>
+                        - User take all responsibility for texture user generated.
+                    </h3>
+                    <p>
+                        I don't take any responsibility or liability for damages arising from the misuse for plate generated by user. <br>
+                        Please use this website wisely.
                     </p>
                 </div>
             </div>
-
-            <!-- Navigation Bookmark -->
-            <div id="navDownload" class="navBookmark"></div>
-
-            <!-- Model Download Container -->
-            <div id="downloadWrapper">
-                <h1>Model Download</h1>
-                <span>If you don't have plate 3d model, and too lazy to create.</span>
-
-                <div id="downloadPreview">
-                    <img src="img\mdl\preview1.png" loading="lazy">
-                    <img src="img\mdl\preview2.png" loading="lazy">
-                    <table>
-                        <tr>
-                            <th colspan="2">Model Detail</th>
-                        </tr>
-                        <tr>
-                            <td>Tris</td>
-                            <td>: 10570</td>
-                        </tr>
-                        <tr>
-                            <td>Faces</td>
-                            <td>: 4873</td>
-                        </tr>
-                        <tr>
-                            <td>UV Template</td>
-                            <td>: Yes</td>
-                        </tr>
-                    </table>
+        </div>
+        <div id="noticeWiki">
+            <span>
+                For all information and how to generate license plate with correct format, please read the explanation
+                <a href="https://en.wikipedia.org/wiki/Vehicle_registration_plates_of_Japan" target="_blank" rel="noopener noreferrer">[ HERE ]</a>
+            </span>
+        </div>
+    </div>
+    <div id="generatorContainer">
+        <!--             Preview Container        -->
+        <div id="previewContainer">
+            <h1>Live Preview</h1>
+            <!--                 Plate Preview            -->
+            <div id="platePreview" class="bgWhite">
+                <div id="plateTop" class="filterGreen">
+                    <div id="platePrefecture"></div>
+                    <div id="plateEngine">
+                        <div class="engine1 engineNumber"></div>
+                        <div class="engine2 engineNumber"></div>
+                        <div class="engine3 engineNumber"></div>
+                    </div>
                 </div>
-                <hr>
-                <div id="download">
-                    <h2>Download</h2>
-                    <span><a href="img\mdl\mbahArip_jpPlate_obj.rar" download="mbahArip_jpPlate_obj.rar">OBJ</a> | <a href="img\mdl\mbahArip_jpPlate_fbx.rar" download="mbahArip_jpPlate_fbx.rar">FBX</a> | <a href="img\mdl\mbahArip_jpPlate_blend.rar" download="mbahArip_jpPlate_blend.rar">blend</a></span>
-                    <a href="img\mdl\mbahArip_jpPlate_template.rar" download="mbahArip_jpPlate_template.rar">UV Template</a>
+                <div id="plateBottom" class="filterGreen">
+                    <div id="hiragana"></div>
+                    <div id="serial">
+                        <div class="serial1 serialNumber"></div>
+                        <div class="serial2 serialNumber"></div>
+                        <div class="serial3 serialNumber symbol"></div>
+                        <div class="serial4 serialNumber"></div>
+                        <div class="serial5 serialNumber"></div>
+                        <div class="serial6 serialNumber"></div>
+                    </div>
                 </div>
+            </div>
+            <h3 id="plateSize">Plate dimension : 660px x 330px</h3>
+        </div>
+
+        <!--             Input Container        -->
+        <div id="inputContainer">
+            <h1>Input</h1>
+            <!--                 Input Form            -->
+            <div id="inputForm">
+                <!-- Car Type -->
+                <ul id="formType">
+                    <li id="typeVehicle">
+                        <span>Vehicle Type</span>
+                        <select name="inputVehicle" id="inputVehicle" onchange="funcInput.listPlateType()">
+                            <option value="" disabled hidden selected>Vehicle Type</option>
+                            <option value="car">Car</option>
+                            <option value="motorcycle" disabled>Motorcycle - will be added later</option>
+                        </select>
+                    </li>
+                    <li id="typePlate">
+                        <span>Plate Type</span>
+                        <select name="inputPlate" id="inputPlate" onchange="funcPreview.updatePlateType()">
+                            <option value="" disabled hidden selected>Plate Type</option>
+                            <option value="" disabled>Please select Vehicle Type first!</option>
+                        </select>
+                    </li>
+                </ul>
+
+                <!-- Region -->
+                <ul id="formRegion">
+                    <li id="regionRegion">
+                        <span>Region</span>
+                        <select name="inputRegion" id="inputRegion" onchange="funcInput.listPrefecture()">
+                            <option value="" disabled hidden selected>Region</option>
+                            <option value="Hokkaido">Hokkaido</option>
+                            <option value="Tohoku">Tohoku</option>
+                            <option value="Kanto">Kanto</option>
+                            <option value="Chubu">Chubu</option>
+                            <option value="Kansai">Kansai</option>
+                            <option value="Chugoku">Chugoku</option>
+                            <option value="Shikoku">Shikoku</option>
+                            <option value="Kyushu">Kyushu</option>
+                        </select>
+                    </li>
+                    <li id="regionPrefecture">
+                        <span>Prefecture</span>
+                        <select name="inputPrefecture" id="inputPrefecture" onchange="funcInput.listMunicipality()">
+                            <option value="" disabled hidden selected>Prefecture</option>
+                            <option value="" disabled>Please select Region first!</option>
+                        </select>
+                    </li>
+                    <li id="regionMunicipality">
+                        <span>Municipality</span>
+                        <select name="inputMunicipality" id="inputMunicipality" onchange="funcInput.listWard()">
+                            <option value="" disabled hidden selected>Municipality</option>
+                            <option value="" disabled>Please select Prefecture first!</option>
+                        </select>
+                    </li>
+                    <li id="regionWards">
+                        <span>Wards</span>
+                        <select name="inputWards" id="inputWards" onchange="funcPreview.updateRegion()">
+                            <option value="" disabled hidden selected>Wards</option>
+                            <option value="" disabled>Please select Municipality first!</option>
+                        </select>
+                    </li>
+                </ul>
+
+                <!-- Vehicle Identification -->
+                <ul id="formIdentification">
+                    <li id="identificationEngine">
+                        <span>Vehicle Engine Class</span>
+                        <label>Please read wiki information first!</label>
+                        <input type="text" name="inputEngine" id="inputEngine" maxlength="3" autocomplete="off" onkeyup="funcPreview.updateEngine()" onkeypress="return filterEngine(event)">
+                    </li>
+                    <li id="identificationHiragana">
+                        <span>Hiragana Character</span>
+                        <label>Please read wiki information first!</label>
+                        <select name="inputHiragana" id="inputHiragana" onchange="funcPreview.updateHiragana()">
+                            <option value="" disabled hidden selected>Hiragana</option>
+                            <option value="" disabled>Please select Plate Type first!</option>
+                        </select>
+                    </li>
+                    <li id="identificationSerial">
+                        <span>Serial Number</span>
+                        <label>Allowed Character:</label>
+                        <label>Number (0-9), Dash (-), Dot (.), and Space.</label>
+                        <input type="text" name="inputSerial" id="inputSerial" maxlength="6" autocomplete="off" onkeyup="funcPreview.updateSerial()" onkeypress="return filterSerial(event)">
+                    </li>
+                </ul>
+
+                <!-- Generate Option -->
+                <ul id="formOption">
+                    <li id="optionScale">
+                        <span>Render Scale</span>
+                        <label>Min = 1; Max = 5</label>
+                        <input type="number" name="inputScale" id="inputScale" max="5" min="1" value="1" autocomplete="off" onchange="funcInput.updateSizePreview()">
+                    </li>
+                    <li id="optionHeight">
+                        <span>Generate Normal Map</span>
+                        <input type="checkbox" name="inputHeight" id="inputHeight">
+                    </li>
+                    <li id="optionWarning">
+                        <span>Please Read!</span>
+                        <span>For game, 2x scale are more than enough!</span>
+                    </li>
+                </ul>
+
+                <!-- Generate Button -->
+                <ul id="formButton">
+                    <li id="buttonGenerate">
+                        <button onclick="funcGenerate.render()">Render</button>
+                    </li>
+                    <li id="buttonDownload">
+                        <button disabled onclick="funcButton.download()">Download</button>
+                    </li>
+                    <li id="buttonReset">
+                        <button onclick="funcButton.reset()">Reset</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!--             Result Container        -->
+        <div id="result">
+            <h1>Generated Image</h1>
+            <div id="resultSize"></div>
+            <!--              Waiting for input        -->
+            <!--              Result Container        -->
+            <div id="resultWait">
+                <img src="img\loading.svg" alt="loading...">
+                <h2>Waiting for input...</h2>
+            </div>
+            <div id="resultContainer">
+                <div id="generatedDiffuse">
+                    <div class="diffuse"></div>
+                    <span>Diffuse Map</span>
+                </div>
+                <div id="generatedHeight">
+                    <!-- <div class="normalCanvas" style="display: none"></div> -->
+                    <div class="height"></div>
+                    <span>Normal Map</span>
+                </div>
+                <div id="generatedSeal">
+                    <div class="seal">
+                        <i class='bx bxs-x-circle'></i>
+                    </div>
+                    <span>Seal Texture</span>
+                </div>
+                <div id="generatedSealNrm">
+                    <div class="sealNrm">
+                        <i class='bx bxs-x-circle'></i>
+                    </div>
+                    <span>Seal Texture</span>
+                </div>
+            </div>
+            <div id="aboutNormal">
+                <span>
+                    I'm currently still searching method for generating normal map texture. <br>
+                    You can use <a href="https://cpetry.github.io/NormalMap-Online/" target="_blank" rel="noopener noreferrer">[ This Site ]</a> for generating normal map, till i found a way to generate it myself.
+                </span>
             </div>
         </div>
     </div>
-
-    <!-- Navigation Bookmark -->
-    <div id="navFooter" class="navBookmark"></div>
-
-    <footer id="footer">
-        <div id="footerContainer">
-            <span>View this project source code here</span>
-            <div class="project">
-                <a href="https://github.com/mbahArip/japanLicensePlate_Generator/" target="_blank"><i class="bx bxl-github"></i> Github Repository</a>
+    <div id="downloadContainer">
+        <div id="modelDownload">
+            <h1>Model Download</h1>
+            <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, iure!</span>
+            <div class="preview">
+                <img src="img\mdl\preview1.png" alt="Preview Front" loading="lazy">
+                <img src="img\mdl\preview2.png" alt="Preview Rear" loading="lazy">
+            </div>
+            <div class="info">
+                <h2>Model Information</h2>
+                <table>
+                    <tr>
+                        <th>Tris</th>
+                        <td>10570</td>
+                    </tr>
+                    <tr>
+                        <th>Faces</th>
+                        <td>4873</td>
+                    </tr>
+                    <tr>
+                        <th>Texture Resolution</th>
+                        <td>4096 * 4096</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="download">
+                <h2>Download Link</h2>
+                <ul>
+                    <li>
+                        <a href="img\mdl\mbahArip_jpPlate_blend.rar">Blender file</a> | <a href="img\mdl\mbahArip_jpPlate_fbx.rar">FBX</a> | <a href="img\mdl\mbahArip_jpPlate_obj.rar">OBJ</a>
+                    </li>
+                    <li>
+                        <a href="img\mdl\mbahArip_jpPlate_template.rar">Texture Template</a>
+                    </li>
+                </ul>
             </div>
         </div>
-        <div id="footerContainer">
+    </div>
+    <div id="discordContainer">
+        <div id="discordDescription">
+            <h1>Discord Server</h1>
+            <img src="" alt="Server Header" loading="lazy">
+            <p>
+                For more easier method, I create discord bot for generating the texture. <br>
+                You can invite the bot to your server, host the bot in your own server, or join the server.
+            </p>
+            <a href="http://" target="_blank" rel="noopener noreferrer">[ Invite Bot ]</a>
+            <a href="http://" target="_blank" rel="noopener noreferrer">[ Join Public Server ]</a>
+        </div>
+        <div id="discordCommand">
+            <h1>Command</h1>
+            <p>
+                [] = Needed Arguments <br>
+                () = Optional Arguments <br>
+                prefix : g! <br><br>
+            <h3>g!generate [vehType] [plateType] [region] [engine] [hiragana] [serial] (scale) (normal)</h3> <br>
+            main command, generate the plate texture. <br>
+            vehType = car | bike <br>
+            plateType = regular | commercial | kregular | kcommercial <br>
+            region = wards name. use g!region for more info <br>
+            engine = 3 digit engine classification <br>
+            hiragana = 1 hiragana character. use g!hiragana for more info <br>
+            serial = 5 digit - 6 digit serial. accepted character = [0-9] [.] [-] [space] <br>
+            scale = scale the texture. resolution (default: 660px x 330px) * scale (default: 1). <br>
+            normal = yes | no. generate normal map. <br>
+            </p>
+        </div>
+    </div>
+    <div id="notification">
+        <!--          Bottom Notification        -->
+    </div>
+    <div id="footer">
+        <div id="github">
+            <span>View source code here</span>
+            <div class="repository">
+                <a href="https://github.com/mbahArip/japanLicensePlate_Generator/" target="_blank" rel="noopener noreferrer"><i class="bx bxl-github"></i> Github Repository</a>
+            </div>
+        </div>
+        <div id="contact">
             <span>If you found any Bugs or Problem, or if you have any Request feel free to message me at</span>
             <div class="contact">
-
-                <a href="https://twitter.com/mbahArip_" target="_blank"><i class='bx bxl-twitter'></i> Twitter</a> -
-                <a href="https://github.com/mbahArip/" target="_blank"><i class='bx bxl-github'></i> Github</a> -
-                <a href="https://www.facebook.com/Kanoon48Graphics/" target="_blank"><i class='bx bxl-facebook-circle'></i> Facebook</a>
+                <a href="https://twitter.com/mbahArip_" target="_blank" rel="noopener noreferrer"><i class='bx bxl-twitter'></i> Twitter</a> -
+                <a href="https://github.com/mbahArip/" target="_blank" rel="noopener noreferrer"><i class='bx bxl-github'></i> Github</a> -
+                <a href="https://www.facebook.com/Kanoon48Graphics/" target="_blank" rel="noopener noreferrer"><i class='bx bxl-facebook-circle'></i> Facebook</a>
             </div>
         </div>
-        <div id="footerContainer">
+        <div id="donate">
             <span>If you like this project, please</span>
-            <script type='text/javascript' src='https://ko-fi.com/widgets/widget_2.js'></script>
-            <script type='text/javascript'>
-                kofiwidget2.init('Support Me on Ko-fi', '#4a3d70', 'B0B03UE0T');
-                kofiwidget2.draw();
-            </script>
+            <div class="donation">
+                <!-- <div class="kofi">
+                    <script type='text/javascript' src='https://ko-fi.com/widgets/widget_2.js'></script>
+                    <script type='text/javascript'>
+                        kofiwidget2.init('Support Me on Ko-fi', '#4a3d70', 'B0B03UE0T');
+                        kofiwidget2.draw();
+                    </script>
+                </div> -->
+                <div class="paypal">
+                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+                        <input type="hidden" name="business" value="modstorage.48@gmail.com">
+                        <input type="hidden" name="cmd" value="_donations">
+                        <input type="hidden" name="item_name" value="jp Plate Generator Donation">
+                        <input type="hidden" name="currency_code" value="USD">
+                        <input type="image" name="submit" src="https://www.paypalobjects.com/webstatic/en_US/i/btn/png/btn_donate_92x26.png" alt="Donate">
+                        <img alt="" width="1" height="1" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif">
+                    </form>
+                </div>
+            </div>
         </div>
-    </footer>
+    </div>
 </body>
 
-<script src="variable.js"></script>
-<script src="function.js"></script>
+<script src="js/exVar.js"></script>
+<script src="js/exLayout.js"></script>
+<script src="js/exFunc.js"></script>
 
 </html>
