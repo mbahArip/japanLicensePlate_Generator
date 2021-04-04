@@ -1,7 +1,7 @@
 # jpPlate Generator
 
 <p align="center">
-  <img src="https://github.com/mbahArip/japanLicensePlate_Generator/blob/master/preview_jpPlateGenerator.png?raw=true">
+  <img src="https://raw.githubusercontent.com/mbahArip/japanLicensePlate_Generator/master/img/logo.svg?raw=true" width="500">
   <br><br>
   <a href="https://mbaharip.github.io/japanLicensePlate_Generator/">jpPlate Generator Site</a>
   <br><br>
