@@ -32,6 +32,7 @@ but, **YOU CAN'T** sell the model or texture generated as it is.
 - Regional Plate - [Preview](https://contents.trafficnews.jp/image/000/036/103/large_200511_gotochi_01.jpg)
 - ~~5 Digit Serial Number - [Preview](https://cdn.snsimg.carview.co.jp/minkara/userstorage/000/015/692/175/81efb1fe1a.jpg)~~
 - Region Fuuin / Seal Texture - [Preview](https://clutch-s.jp/wp-content/uploads/2016/09/113033299_624.v1466154808.jpg)
+- Discord Bot
 
 ## Request or Issues
 
