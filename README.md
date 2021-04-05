@@ -38,3 +38,10 @@ but, **YOU CAN'T** sell the model or texture generated as it is.
 ## Request or Issues
 
 For issues or request, please submit it directly to [Issues](https://github.com/mbahArip/japanLicensePlate_Generator/issues)
+
+## Credits
+
+- [jszip](https://github.com/Stuk/jszip) by [Stuk](https://github.com/Stuk)
+- [dom-to-image](https://github.com/tsayen/dom-to-image) by [tsayen](https://github.com/tsayen)
+- [Filesaver.js](https://github.com/eligrey/FileSaver.js/) by [eligrey](https://github.com/eligrey)
+- [Height2Normal](https://mrdoob.com/lab/javascript/height2normal/) by [mrdoob](https://github.com/mrdoob)
