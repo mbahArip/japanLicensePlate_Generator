@@ -3,7 +3,7 @@
 <p align="center">
   <img src="https://raw.githubusercontent.com/mbahArip/japanLicensePlate_Generator/master/img/logo.svg?raw=true" width="500">
   <br><br>
-  <a href="https://hits.seeyoufarm.com" class="hitsCounter"><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fmbaharip.github.io%2FjapanLicensePlate_Generator%2F&count_bg=%238B5CF6&title_bg=%23202327&icon=github.svg&icon_color=%23F7F9FA&title=Visit&edge_flat=false"/></a><br>
+  <!--<a href="https://hits.seeyoufarm.com" class="hitsCounter"><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fmbaharip.github.io%2FjapanLicensePlate_Generator%2F&count_bg=%238B5CF6&title_bg=%23202327&icon=github.svg&icon_color=%23F7F9FA&title=Visit&edge_flat=false"/></a><br>-->
   <a href="https://mbaharip.github.io/japanLicensePlate_Generator/">jpPlate Generator Site</a>
   <br><br>
   Simple project for helping me generating jp Plate.  
