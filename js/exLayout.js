@@ -120,6 +120,14 @@ class navigation {
 
 		this.checkPage();
 	}
+
+	version() {
+		fetch('json/changelog.json')
+			.then((r) => r.json())
+			.then((data) => {
+				version.innerHTML = `v${data[0]['version']}/${data[0]['build']}`;
+			});
+	}
 }
 
 class notification {

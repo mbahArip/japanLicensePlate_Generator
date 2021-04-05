@@ -1,4 +1,5 @@
 const navTop = document.getElementById('top');
+const version = document.querySelector('.version');
 
 //Navbar
 const navbarMenu = document.getElementById('navbarMenu');

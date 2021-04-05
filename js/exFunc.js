@@ -1,5 +1,6 @@
 function init() {
 	// console.clear();
+	layoutNavigation.version();
 	layoutNavigation.checkPage();
 	layoutNotification.listChangelog();
 }
