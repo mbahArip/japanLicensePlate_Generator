@@ -1370,6 +1370,34 @@ div#platePreview div#plateBottom div#serial div.symbol {
   width: 50px !important;
 }
 
+.goog-te-banner-frame.skiptranslate {
+  display: none !important;
+}
+
+body {
+  top: 0px !important;
+}
+
+.goog-tooltip {
+  display: none !important;
+}
+
+.goog-tooltip:hover {
+  display: none !important;
+}
+
+.goog-text-highlight {
+  background-color: transparent !important;
+  border: none !important;
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+}
+
+.goog-te-gadget .goog-te-combo {
+  width: 100%;
+  outline: none;
+}
+
 @media only screen and (max-width: 1024px) {
   div#generatorContainer div#platePreview {
     -webkit-transform: scale(0.75, 0.75);
