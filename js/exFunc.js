@@ -637,15 +637,21 @@ class button {
 		optionHeight.checked = false;
 
 		//Button
+		if (checkAgreement.checked == true) {
+			checkAgreement.checked = false;
+			this.terms();
+		}
 		if (buttonDownload.firstElementChild.hasAttribute('disabled') == false) {
 			buttonDownload.firstElementChild.setAttribute('disabled', '');
 		}
 
 		//Result
-		layoutRender.hideResult();
-		await sleep(250);
-		diffuseRender.firstElementChild.remove();
-		normalRender.firstElementChild.remove();
+		if (diffuseRender.firstElementChild) {
+			layoutRender.hideResult();
+			await sleep(250);
+			diffuseRender.firstElementChild.remove();
+			normalRender.firstElementChild.remove();
+		}
 		// sealRender.firstElementChild.remove();
 		// sealNrmRender.firstElementChild.remove();
 	}
