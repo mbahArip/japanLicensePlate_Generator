@@ -211,6 +211,13 @@ class input {
 		reset(inputMunicipality, 'Municipality', 'Prefecture');
 		reset(inputWard, 'Wards', 'Municipality');
 	}
+
+	async viewTerms() {
+		document.body.scrollTop = 0;
+		document.documentElement.scrollTop = 0;
+		await sleep(100);
+		layoutNotification.expandTerms();
+	}
 }
 
 class preview {
@@ -570,6 +577,13 @@ class generate {
 }
 
 class button {
+	terms() {
+		if (checkAgreement.checked == true) {
+			buttonGenerate.firstElementChild.removeAttribute('disabled');
+		} else {
+			buttonGenerate.firstElementChild.setAttribute('disabled', '');
+		}
+	}
 	download() {
 		let zip = new JSZip();
 		let zipName = `jpLicensePlate - ${inputPlateType.value}_${inputWard.value.split(' - ')[0]}${

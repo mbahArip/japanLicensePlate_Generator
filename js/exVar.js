@@ -124,6 +124,7 @@ const optionHeight = document.getElementById('inputHeight');
 //Button
 const formButton = document.getElementById('formButton');
 
+const checkAgreement = document.getElementById('agreement');
 const buttonGenerate = document.getElementById('buttonGenerate');
 const buttonDownload = document.getElementById('buttonDownload');
 const buttonReset = document.getElementById('buttonReset');

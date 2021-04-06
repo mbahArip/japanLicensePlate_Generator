@@ -158,8 +158,35 @@ nav#navbar div#navbarLogo img {
   padding: 0.25rem;
 }
 
-nav#navbar div#navbarLogo span.version {
-  font-size: 12px;
+nav#navbar div#navbarLogo div.logoRight {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+nav#navbar div#navbarLogo div.logoRight a.hitsCounter img {
+  width: 7rem;
+  height: auto;
+  -o-object-fit: contain;
+     object-fit: contain;
+  margin-bottom: -0.15rem;
+}
+
+nav#navbar div#navbarLogo div.logoRight span.version {
+  font-size: 1rem;
+  margin-left: 0.5rem;
   margin-bottom: 0.15rem;
   color: #eeeeee;
 }
@@ -447,7 +474,9 @@ div#notification div#noticeTerms div.termsExpand {
 }
 
 div#notification div#noticeTerms div.termsExpand div.terms {
-  width: 75%;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
   padding: 1rem;
   text-align: start;
 }
@@ -455,17 +484,36 @@ div#notification div#noticeTerms div.termsExpand div.terms {
 div#notification div#noticeTerms div.termsExpand div.terms h2 {
   margin-bottom: 1rem;
   text-align: center;
+  text-transform: uppercase;
 }
 
-div#notification div#noticeTerms div.termsExpand div.terms h3 {
-  margin-top: 0.75rem;
+div#notification div#noticeTerms div.termsExpand div.terms ul {
+  width: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
-div#notification div#noticeTerms div.termsExpand div.terms p {
-  font-size: 15px;
-  margin-left: 1rem;
-  margin-top: 0.25rem;
-  margin-bottom: 0.25rem;
+div#notification div#noticeTerms div.termsExpand div.terms li h3 {
+  margin: 1rem auto 0.25rem auto;
+}
+
+div#notification div#noticeTerms div.termsExpand div.terms li p {
+  margin-left: 0.5rem;
+}
+
+div#notification div#noticeTerms div.termsExpand div.terms li span.bold {
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 div#notification div#noticeWiki {
@@ -488,6 +536,16 @@ div#notification div#noticeWiki a {
 
 div#notification div#noticeWiki a:hover {
   color: #ffffff;
+}
+
+div#notification div.importantNotice {
+  display: none;
+  width: 80vw;
+  text-align: center;
+  padding: 0.5rem;
+  background-color: #3b82f6;
+  border-radius: 10px;
+  margin: 1rem;
 }
 
 div#generatorContainer {
@@ -611,7 +669,7 @@ div#generatorContainer div#inputForm li#optionHeight {
 
 div#generatorContainer div#inputForm li#optionHeight span {
   font-size: 15px;
-  margin-right: 10px;
+  margin-left: 0.5rem;
 }
 
 div#generatorContainer div#inputForm span {
@@ -665,6 +723,55 @@ div#generatorContainer div#inputForm li#buttonReset button {
 
 div#generatorContainer div#inputForm li#buttonReset button:hover {
   background: #f87171;
+}
+
+div#generatorContainer div#inputForm ul#aformButton {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+div#generatorContainer div#inputForm li#termsAgreement {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 1rem;
+}
+
+div#generatorContainer div#inputForm li#termsAgreement span {
+  margin-left: 0.5rem;
+  font-size: 1rem;
+}
+
+div#generatorContainer div#inputForm li#termsAgreement a {
+  text-decoration: none;
+  color: #4f46e5;
+  -webkit-transition: 0.25s color;
+  transition: 0.25s color;
+}
+
+div#generatorContainer div#inputForm li#termsAgreement a:hover {
+  color: #8b5cf6;
 }
 
 div#generatorContainer div#result {
