@@ -621,6 +621,14 @@ div#generatorContainer div#inputForm {
   margin: 0.5rem;
 }
 
+div#generatorContainer div#inputForm ul#formType .carPlate {
+  display: none;
+}
+
+div#generatorContainer div#inputForm ul#formType .bikePlate {
+  display: none;
+}
+
 div#generatorContainer div#inputForm ul {
   margin: 1rem 1rem auto 1rem;
 }
@@ -772,6 +780,25 @@ div#generatorContainer div#inputForm li#termsAgreement a {
 
 div#generatorContainer div#inputForm li#termsAgreement a:hover {
   color: #8b5cf6;
+}
+
+div#generatorContainer div#inputForm li#rentalCar,
+div#generatorContainer div#inputForm li#USMil {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+div#generatorContainer div#inputForm li#rentalCar span,
+div#generatorContainer div#inputForm li#USMil span {
+  margin-left: 0.5rem;
 }
 
 div#generatorContainer div#result {

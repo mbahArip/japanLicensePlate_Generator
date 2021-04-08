@@ -22,6 +22,31 @@ function filterSerial(evt) {
 }
 
 class input {
+	checkTypeRental() {
+		if (inputUS.checked == true) {
+			inputUS.checked = false;
+		}
+		this.listHiragana();
+		funcPreview.updateHiragana();
+	}
+	checkTypeUS() {
+		if (inputRental.checked == true) {
+			inputRental.checked = false;
+		}
+		this.listHiragana();
+		funcPreview.updateHiragana();
+	}
+	checkPlateType() {
+		inputRental.checked = false;
+		inputUS.checked = false;
+		if (inputPlateType.value == 'private' || inputPlateType.value == 'kprivate') {
+			inputRental.removeAttribute('disabled');
+			inputUS.removeAttribute('disabled');
+		} else {
+			inputRental.setAttribute('disabled', '');
+			inputUS.setAttribute('disabled', '');
+		}
+	}
 	listPlateType() {
 		let vehType = inputVehType.value;
 		//0 - 3 = Car | 4++ = Motorcycle
@@ -43,6 +68,13 @@ class input {
 				for (let i = 0; i <= 3; i++) {
 					inputPlateType.appendChild(new Option(type[i][0], type[i][1], false, false));
 				}
+
+				// for (let b = 0; b < bikePlate.length; b++) {
+				// 	bikePlate[b].style.display = 'none';
+				// }
+				for (let a = 0; a < carPlate.length; a++) {
+					carPlate[a].style.display = 'flex';
+				}
 				break;
 
 			case 'motorcycle':
@@ -54,6 +86,13 @@ class input {
 
 				for (let i = 4; i <= 7; i++) {
 					inputPlateType.appendChild(new Option(type[i][0], type[i][1], false, false));
+				}
+
+				// for (let b = 0; b < bikePlate.length; b++) {
+				// 	bikePlate[b].style.display = 'flex';
+				// }
+				for (let a = 0; a < carPlate.length; a++) {
+					carPlate[a].style.display = 'none';
 				}
 				break;
 
@@ -69,35 +108,6 @@ class input {
 		}
 	}
 	listHiragana() {
-		let hiraganaPriv = [
-			'さ',
-			'す',
-			'せ',
-			'そ',
-			'た',
-			'ち',
-			'つ',
-			'て',
-			'と',
-			'な',
-			'に',
-			'ぬ',
-			'ね',
-			'の',
-			'は',
-			'ひ',
-			'ふ',
-			'ほ',
-			'ま',
-			'み',
-			'む',
-			'め',
-			'ゆ',
-			'ら',
-			'り',
-			'る',
-		];
-		let hiraganaCom = ['あ', 'い', 'う', 'え', 'か', 'き', 'く', 'け', 'こ', 'を'];
 		let plateType = inputPlateType.value;
 		let hiraganaList;
 
@@ -107,16 +117,48 @@ class input {
 		firstOption.setAttribute('disabled', '');
 		firstOption.setAttribute('hidden', '');
 
-		if (plateType == 'private' || plateType == 'kprivate') {
-			hiraganaList = hiraganaPriv;
-		} else if (plateType == 'commercial' || plateType == 'kcommercial') {
-			hiraganaList = hiraganaCom;
-		} else if (plateType == '') {
-			hiraganaList = [];
-			inputHiragana.appendChild(new Option('Please select Plate Type first!', '', false, false));
-			let secondOption = inputHiragana.firstElementChild.nextElementSibling;
-			secondOption.setAttribute('disabled', '');
+		switch (plateType) {
+			case 'private':
+				if (inputRental.checked) {
+					hiraganaList = hiraganaPrivateRental;
+				} else if (inputUS.checked) {
+					hiraganaList = hiraganaUS;
+				} else {
+					hiraganaList = hiraganaPrivate;
+				}
+				break;
+			case 'commercial':
+				hiraganaList = hiraganaPrivateCommercial;
+				break;
+			case 'kprivate':
+				if (inputRental.checked) {
+					hiraganaList = hiraganaKeiRental;
+				} else if (inputUS.checked) {
+					hiraganaList = hiraganaUSKei;
+				} else {
+					hiraganaList = hiraganaKei;
+				}
+				break;
+			case 'kcommercial':
+				hiraganaList = hiraganaKeiCommercial;
+				break;
+			case '':
+				hiraganaList = [];
+				inputHiragana.appendChild(new Option('Please select Plate Type first!', '', false, false));
+				let secondOption = inputHiragana.firstElementChild.nextElementSibling;
+				secondOption.setAttribute('disabled', '');
+				break;
 		}
+		// if (plateType == 'private' || plateType == 'kprivate') {
+		// 	hiraganaList = hiraganaPriv;
+		// } else if (plateType == 'commercial' || plateType == 'kcommercial') {
+		// 	hiraganaList = hiraganaCom;
+		// } else if (plateType == '') {
+		// 	hiraganaList = [];
+		// 	inputHiragana.appendChild(new Option('Please select Plate Type first!', '', false, false));
+		// 	let secondOption = inputHiragana.firstElementChild.nextElementSibling;
+		// 	secondOption.setAttribute('disabled', '');
+		// }
 
 		for (let i = 0; i < hiraganaList.length; i++) {
 			inputHiragana.appendChild(new Option(hiraganaList[i], hiraganaList[i], false, false));
@@ -222,7 +264,9 @@ class input {
 
 class preview {
 	updatePlateType() {
+		funcInput.checkPlateType();
 		funcInput.listHiragana();
+		this.updateHiragana();
 		let plateType = inputPlateType.value;
 		let color = [
 			['bgWhite', 'filterGreen'],

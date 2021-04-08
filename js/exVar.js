@@ -88,6 +88,10 @@ const inputVehType = document.getElementById('inputVehicle');
 const listPlateType = document.getElementById('typePlate');
 const inputPlateType = document.getElementById('inputPlate');
 
+const inputRental = document.getElementById('inputRental');
+const inputUS = document.getElementById('inputUS');
+const carPlate = document.getElementsByClassName('carPlate');
+
 //Region
 const formRegion = document.getElementById('formRegion');
 
@@ -164,4 +168,84 @@ const imageEmpty = `url('img/undefined.png') center center no-repeat`;
 const imageZero = `url('img/num/num_0.svg') center center no-repeat`;
 const imageDash = `url('img/num/num_-.svg') center center no-repeat`;
 
-// var renderScale = optionScale.value;
+//Array
+
+const hiraganaPrivate = [
+	'さ',
+	'す',
+	'せ',
+	'そ',
+	'た',
+	'ち',
+	'つ',
+	'て',
+	'と',
+	'な',
+	'に',
+	'ぬ',
+	'ね',
+	'の',
+	'は',
+	'ひ',
+	'ふ',
+	'ほ',
+	'ま',
+	'み',
+	'む',
+	'め',
+	'も',
+	'や',
+	'ゆ',
+	'ら',
+	'り',
+	'る',
+	'ろ',
+];
+const hiraganaPrivateCommercial = ['あ', 'い', 'う', 'え', 'か', 'き', 'く', 'け', 'こ', 'を'];
+const hiraganaPrivateRental = ['れ'];
+const hiraganaKei = [
+	'あ',
+	'い',
+	'う',
+	'え',
+	'か',
+	'き',
+	'く',
+	'け',
+	'こ',
+	'さ',
+	'す',
+	'せ',
+	'そ',
+	'た',
+	'ち',
+	'つ',
+	'て',
+	'と',
+	'な',
+	'に',
+	'ぬ',
+	'ね',
+	'の',
+	'は',
+	'ひ',
+	'ふ',
+	'ほ',
+	'ま',
+	'み',
+	'む',
+	'め',
+	'も',
+	'や',
+	'ゆ',
+	'よ',
+	'ら',
+	'る',
+	'ろ',
+	'を',
+];
+const hiraganaKeiCommercial = ['り', 'れ'];
+const hiraganaKeiRental = ['わ'];
+const hiraganaRental = ['わ', 'れ'];
+const hiraganaUS = ['E', 'H', 'K', 'M', 'T', 'Y', 'よ'];
+const hiraganaUSKei = ['A', 'B'];

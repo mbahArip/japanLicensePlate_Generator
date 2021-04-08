@@ -1,6 +1,6 @@
 [
 	{
-		"update": "06 April 2021",
+		"update": "09 April 2021",
 		"version": "1.1",
 		"build": "b042021"
 	},
@@ -63,5 +63,17 @@
 	{
 		"date": "06 April 2021",
 		"change": "Add: Terms agreement before rendering."
+	},
+	{
+		"date": "",
+		"change": "Add: Missing hiragana"
+	},
+	{
+		"date": "",
+		"change": "Add: Rental and US Army Personel Hiragana"
+	},
+	{
+		"date": "09 April 2021",
+		"change": "Fix: Wrong hiragana list"
 	}
 ]
