@@ -260,6 +260,10 @@ class input {
 		await sleep(100);
 		layoutNotification.expandTerms();
 	}
+
+	resetDownload() {
+		buttonDownload.firstElementChild.setAttribute('disabled', '');
+	}
 }
 
 class preview {
@@ -635,12 +639,12 @@ class button {
 		}_${inputHiragana.value}${inputSerial.value}@${optionScale.value}x.zip`;
 
 		let diffuseB64 = diffuseRender.firstElementChild.src.split('base64,')[1];
-		let normalB64 = normalRender.firstElementChild.src.split('base64,')[1];
 		// let sealB64 = sealRender.firstElementChild.split('base64,')[1];
 		// let sealNormalB64 = sealNrmRender.firstElementChild.split('base64,')[1];
 
 		zip.file(`diffuseMap@${optionScale.value}.png`, diffuseB64, { base64: true });
 		if (inputHeight.checked) {
+			let normalB64 = normalRender.firstElementChild.src.split('base64,')[1];
 			zip.file(`normalMap@${optionScale.value}.png`, normalB64, { base64: true });
 		}
 		zip.generateAsync({ type: 'blob' }).then(function (content) {
