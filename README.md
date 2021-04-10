@@ -9,7 +9,7 @@
   Simple project for helping me generating jp Plate.  
   Instead of going back and forth opening psd files with hundred of files.
   <br>
-  Hope this web helping a lot of 3D artist / Game modders creating jp Plate.  
+  Hope this site will help a lot of 3D artist / Game modders creating jp Plate.  
 </p>
 
 ## Disclaimer
