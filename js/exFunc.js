@@ -7,7 +7,7 @@ function init() {
 function filterEngine(evt) {
 	evt = evt ? evt : window.event;
 	let charCode = evt.which ? evt.which : evt.keyCode;
-	if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+	if (charCode > 32 && (charCode < 48 || charCode > 57)) {
 		return false;
 	}
 	return true;
@@ -393,6 +393,7 @@ class preview {
 			}
 			previewSerialNumber[i].classList.remove('symbol');
 		}
+		//Check space
 		if (serialNumber[serialNumber.length - 1] === ' ') {
 			previewSerialNumber[serialNumber.length - 1].style.background = imageEmpty;
 		}
