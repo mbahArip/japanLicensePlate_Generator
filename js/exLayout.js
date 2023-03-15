@@ -83,11 +83,6 @@ class navigation {
 			this.showContainer(generatorContainer);
 			buttonNavDownload.removeAttribute('disabled');
 			buttonNavGenerator.setAttribute('disabled', '');
-		} else if (currentPage == '#download') {
-			this.hideContainer(generatorContainer);
-			this.showContainer(downloadContainer);
-			buttonNavGenerator.removeAttribute('disabled');
-			buttonNavDownload.setAttribute('disabled', '');
 		}
 	}
 	async changePage(destination, url) {
